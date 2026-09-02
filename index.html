@@ -13,11 +13,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
         rel="stylesheet">
 
     <style>
-
         /* =========================
            GLOBAL
         ========================= */
@@ -162,8 +162,6 @@
             align-items: center;
             justify-content: space-between;
         }
-
-        /* Professional VP logo */
 
         .logo {
             width: 42px;
@@ -624,6 +622,58 @@
 
 
         /* =========================
+           LANGUAGES
+           SAME STYLE AS SKILLS
+        ========================= */
+
+        #languages {
+            background: var(--background);
+        }
+
+        .languages-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        /* These classes intentionally use
+           the exact same visual properties
+           as the Skills section. */
+
+        .language {
+            margin-bottom: 25px;
+        }
+
+        .language-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .language-header span:last-child {
+            color: var(--muted);
+        }
+
+        .language-bar {
+            width: 100%;
+            height: 7px;
+            background: #e9edf2;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .language-progress {
+            height: 100%;
+            width: 0;
+            background: var(--primary);
+            border-radius: 10px;
+            transition: width 1.5s ease;
+        }
+
+
+        /* =========================
            PROJECTS
         ========================= */
 
@@ -1043,7 +1093,8 @@
 
             .hero-grid,
             .about-grid,
-            .skills-grid {
+            .skills-grid,
+            .languages-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1091,7 +1142,6 @@
             }
         }
 
-
         @media (max-width: 480px) {
 
             .logo {
@@ -1127,7 +1177,6 @@
 
 <body>
 
-
     <!-- =========================
          LOADER
     ========================= -->
@@ -1147,12 +1196,9 @@
 
             <nav>
 
-                <!-- VP PROFESSIONAL LOGO -->
-
                 <a href="#home" class="logo" title="Vansh Patel">
                     VP
                 </a>
-
 
                 <ul class="nav-links" id="navLinks">
 
@@ -1166,6 +1212,11 @@
 
                     <li>
                         <a href="#skills">Skills</a>
+                    </li>
+
+                    <!-- NEW LANGUAGES -->
+                    <li>
+                        <a href="#languages">Languages</a>
                     </li>
 
                     <li>
@@ -1188,7 +1239,6 @@
 
                 </ul>
 
-
                 <div class="menu-btn" id="menuBtn">
                     ☰
                 </div>
@@ -1210,7 +1260,6 @@
 
             <div class="hero-grid">
 
-
                 <div class="hero-content">
 
                     <div class="eyebrow">
@@ -1231,21 +1280,17 @@
                         reliable and professional digital solutions.
                     </p>
 
-
                     <div class="hero-buttons">
 
-                        <a href="#projects"
-                            class="btn btn-primary">
+                        <a href="#projects" class="btn btn-primary">
                             View My Work →
                         </a>
 
-                        <a href="#contact"
-                            class="btn btn-outline">
+                        <a href="#contact" class="btn btn-outline">
                             Contact Me
                         </a>
 
                     </div>
-
 
                     <div class="socials">
 
@@ -1280,11 +1325,9 @@
                         <img
                             src="profile.jpg"
                             alt="Vansh Patel"
-                            class="profile-photo"
-                        >
+                            class="profile-photo">
 
                     </div>
-
 
                     <div class="floating-card">
 
@@ -1327,9 +1370,7 @@
 
             </div>
 
-
             <div class="about-grid">
-
 
                 <div class="about-box reveal">
 
@@ -1356,46 +1397,23 @@
                     <div class="about-info">
 
                         <div class="info-item">
-
                             <small>Name</small>
-
-                            <strong>
-                                Vansh Patel
-                            </strong>
-
+                            <strong>Vansh Patel</strong>
                         </div>
 
-
                         <div class="info-item">
-
                             <small>Field</small>
-
-                            <strong>
-                                IT / Software
-                            </strong>
-
+                            <strong>IT / Software</strong>
                         </div>
 
-
                         <div class="info-item">
-
                             <small>Focus</small>
-
-                            <strong>
-                                Development & Analytics
-                            </strong>
-
+                            <strong>Development & Analytics</strong>
                         </div>
 
-
                         <div class="info-item">
-
                             <small>Goal</small>
-
-                            <strong>
-                                Data Analyst
-                            </strong>
-
+                            <strong>Data Analyst</strong>
                         </div>
 
                     </div>
@@ -1433,7 +1451,6 @@
 
             <div class="skills-grid">
 
-
                 <div class="reveal">
 
                     <div class="skill">
@@ -1444,11 +1461,9 @@
                         </div>
 
                         <div class="skill-bar">
-
                             <div class="skill-progress"
                                 data-width="85%">
                             </div>
-
                         </div>
 
                     </div>
@@ -1462,11 +1477,9 @@
                         </div>
 
                         <div class="skill-bar">
-
                             <div class="skill-progress"
                                 data-width="82%">
                             </div>
-
                         </div>
 
                     </div>
@@ -1480,11 +1493,9 @@
                         </div>
 
                         <div class="skill-bar">
-
                             <div class="skill-progress"
                                 data-width="88%">
                             </div>
-
                         </div>
 
                     </div>
@@ -1498,11 +1509,9 @@
                         </div>
 
                         <div class="skill-bar">
-
                             <div class="skill-progress"
                                 data-width="75%">
                             </div>
-
                         </div>
 
                     </div>
@@ -1533,6 +1542,128 @@
                         <span class="tag">Power BI</span>
                         <span class="tag">Excel</span>
                         <span class="tag">Django</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         LANGUAGES
+         SAME VISUAL STYLE AS SKILLS
+    ========================= -->
+
+    <section class="section" id="languages">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+
+                <span>Languages</span>
+
+                <h2>Language Proficiency</h2>
+
+                <p>
+                    My communication skills across different languages.
+                </p>
+
+            </div>
+
+
+            <div class="languages-grid">
+
+                <!-- LEFT SIDE -->
+
+                <div class="reveal">
+
+                    <!-- ENGLISH -->
+
+                    <div class="language">
+
+                        <div class="language-header">
+                            <span>English</span>
+                            <span>Grade A · 85%</span>
+                        </div>
+
+                        <div class="language-bar">
+
+                            <div class="language-progress"
+                                data-width="85%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- HINDI -->
+
+                    <div class="language">
+
+                        <div class="language-header">
+                            <span>Hindi</span>
+                            <span>Grade A+ · 95%</span>
+                        </div>
+
+                        <div class="language-bar">
+
+                            <div class="language-progress"
+                                data-width="95%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RIGHT SIDE -->
+
+                <div class="reveal">
+
+                    <!-- GUJARATI -->
+
+                    <div class="language">
+
+                        <div class="language-header">
+                            <span>Gujarati</span>
+                            <span>Grade A+ · 95%</span>
+                        </div>
+
+                        <div class="language-bar">
+
+                            <div class="language-progress"
+                                data-width="95%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- MARATHI -->
+
+                    <div class="language">
+
+                        <div class="language-header">
+                            <span>Marathi</span>
+                            <span>Grade B+ · 75%</span>
+                        </div>
+
+                        <div class="language-bar">
+
+                            <div class="language-progress"
+                                data-width="75%">
+                            </div>
+
+                        </div>
 
                     </div>
 
@@ -1589,11 +1720,9 @@
                     </p>
 
                     <div class="project-tech">
-
                         <span>Python</span>
                         <span>Machine Learning</span>
                         <span>SQLite</span>
-
                     </div>
 
                     <button
@@ -1624,12 +1753,10 @@
                     </p>
 
                     <div class="project-tech">
-
                         <span>Python</span>
                         <span>Flask</span>
                         <span>AI</span>
                         <span>HTML</span>
-
                     </div>
 
                     <button
@@ -1660,12 +1787,10 @@
                     </p>
 
                     <div class="project-tech">
-
                         <span>Python</span>
                         <span>Pandas</span>
                         <span>NumPy</span>
                         <span>Matplotlib</span>
-
                     </div>
 
                     <button
@@ -1696,12 +1821,10 @@
                     </p>
 
                     <div class="project-tech">
-
                         <span>PHP</span>
                         <span>MySQL</span>
                         <span>HTML</span>
                         <span>CSS</span>
-
                     </div>
 
                     <button
@@ -1805,6 +1928,7 @@
 
             <div class="timeline">
 
+
                 <div class="timeline-item reveal">
 
                     <small>
@@ -1812,15 +1936,15 @@
                     </small>
 
                     <h3>
-                        B.Sc.nformation Technology (Software & Mobile Application)
+                        B.Sc. Information Technology
+                        (Software & Mobile Application)
                     </h3>
 
                     <p>
-                        Currently pursuing B.Sc. IT, 
-                        building a strong foundation in programming, 
-                        software development, databases, 
+                        Currently pursuing B.Sc. IT,
+                        building a strong foundation in programming,
+                        software development, databases,
                         web technologies and mobile application development.
-                        
                     </p>
 
                 </div>
@@ -1833,12 +1957,16 @@
                     </small>
 
                     <h3>
-                        I am a B.Sc. IT student with a software-development foundation, but I am specializing toward Data Analytics
+                        Software Development Foundation
+                        with a Focus on Data Analytics
                     </h3>
 
                     <p>
-                        Working with Analytics: Python • Pandas • NumPy • Excel • SQL • Power BI • Data Visualization
-                        Development: Java  • PHP • JavaScript • HTML • CSS • Dart • MySQL 
+                        Working with Analytics:
+                        Python • Pandas • NumPy • Excel • SQL • Power BI • Data Visualization
+                        <br><br>
+                        Development:
+                        Java • PHP • JavaScript • HTML • CSS • Dart • MySQL
                     </p>
 
                 </div>
@@ -1856,10 +1984,11 @@
 
                     <p>
                         Developing knowledge in Python,
-                        data analysis, visualization,Excel, SQL,
-                        data cleaning, Power BI, 
-                        Planning to expand my skills into machine learning, 
-                        predictive analytics and AI after building a strong foundation in Data Analytics.
+                        data analysis, visualization, Excel, SQL,
+                        data cleaning and Power BI.
+                        Planning to expand my skills into machine learning,
+                        predictive analytics and AI after building
+                        a strong foundation in Data Analytics.
                     </p>
 
                 </div>
@@ -1898,7 +2027,8 @@
 
                 <!-- EMAIL -->
 
-                <a href="mailto:patelvansh23042004@gmail.com"
+                <a
+                    href="mailto:patelvansh23042004@gmail.com"
                     class="contact-card reveal">
 
                     <div class="contact-icon">
@@ -1918,7 +2048,8 @@
 
                 <!-- GITHUB -->
 
-                <a href="https://github.com/vanshpatel2323"
+                <a
+                    href="https://github.com/vanshpatel2323"
                     target="_blank"
                     class="contact-card reveal">
 
@@ -1939,7 +2070,8 @@
 
                 <!-- LINKEDIN -->
 
-                <a href="https://www.linkedin.com/"
+                <a
+                    href="https://www.linkedin.com/"
                     target="_blank"
                     class="contact-card reveal">
 
@@ -1993,7 +2125,6 @@
     ========================= -->
 
     <script>
-
 
         /* =========================
            LOADER
@@ -2120,7 +2251,7 @@
             ) {
 
                 document
-                    .querySelectorAll(".skill-progress")
+                    .querySelectorAll("#skills .skill-progress")
                     .forEach(function (bar) {
 
                         bar.style.width =
@@ -2140,6 +2271,52 @@
         );
 
         animateSkills();
+
+
+        /* =========================
+           LANGUAGE ANIMATION
+           SAME EFFECT AS SKILLS
+        ========================= */
+
+        let languagesAnimated = false;
+
+        function animateLanguages() {
+
+            const languagesSection =
+                document.getElementById("languages");
+
+            if (!languagesSection) return;
+
+            const position =
+                languagesSection.getBoundingClientRect().top;
+
+            if (
+                position <
+                window.innerHeight - 100 &&
+                !languagesAnimated
+            ) {
+
+                document
+                    .querySelectorAll("#languages .language-progress")
+                    .forEach(function (bar) {
+
+                        bar.style.width =
+                            bar.dataset.width;
+
+                    });
+
+                languagesAnimated = true;
+
+            }
+
+        }
+
+        window.addEventListener(
+            "scroll",
+            animateLanguages
+        );
+
+        animateLanguages();
 
 
         /* =========================
@@ -2174,11 +2351,13 @@
                 ],
 
                 technologies: [
+
                     "Python",
                     "Machine Learning",
                     "SQLite",
                     "Pandas",
                     "Scikit-learn"
+
                 ]
 
             },
@@ -2210,12 +2389,14 @@
                 ],
 
                 technologies: [
+
                     "Python",
                     "Flask",
                     "AI",
                     "HTML",
                     "CSS",
                     "JavaScript"
+
                 ]
 
             },
@@ -2247,11 +2428,13 @@
                 ],
 
                 technologies: [
+
                     "Python",
                     "Pandas",
                     "NumPy",
                     "Matplotlib",
                     "Data Analytics"
+
                 ]
 
             },
@@ -2283,11 +2466,13 @@
                 ],
 
                 technologies: [
+
                     "PHP",
                     "MySQL",
                     "HTML",
                     "CSS",
                     "XAMPP"
+
                 ]
 
             }
@@ -2380,28 +2565,34 @@
 
         /* Close modal when clicking outside */
 
-        projectModal.addEventListener("click", function (event) {
+        projectModal.addEventListener(
+            "click",
+            function (event) {
 
-            if (event.target === projectModal) {
+                if (event.target === projectModal) {
 
-                closeProject();
+                    closeProject();
+
+                }
 
             }
-
-        });
+        );
 
 
         /* Close modal with Escape key */
 
-        document.addEventListener("keydown", function (event) {
+        document.addEventListener(
+            "keydown",
+            function (event) {
 
-            if (event.key === "Escape") {
+                if (event.key === "Escape") {
 
-                closeProject();
+                    closeProject();
+
+                }
 
             }
-
-        });
+        );
 
 
         /* =========================
@@ -2426,17 +2617,20 @@
         });
 
 
-        topBtn.addEventListener("click", function () {
+        topBtn.addEventListener(
+            "click",
+            function () {
 
-            window.scrollTo({
+                window.scrollTo({
 
-                top: 0,
+                    top: 0,
 
-                behavior: "smooth"
+                    behavior: "smooth"
 
-            });
+                });
 
-        });
+            }
+        );
 
 
         /* =========================
