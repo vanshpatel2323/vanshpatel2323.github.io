@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,13 @@
     <title>Vansh Patel | Software Developer & Data Analyst</title>
 
     <meta name="description"
-          content="Vansh Patel - Software Developer and Data Analyst Portfolio">
+        content="Vansh Patel - Software Developer and Data Analyst Portfolio">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
-          rel="stylesheet">
+        rel="stylesheet">
 
     <style>
 
@@ -48,9 +49,17 @@
             overflow-x: hidden;
         }
 
+        body.modal-open {
+            overflow: hidden;
+        }
+
         a {
             text-decoration: none;
             color: inherit;
+        }
+
+        button {
+            font-family: inherit;
         }
 
         .container {
@@ -136,7 +145,7 @@
             top: 0;
             left: 0;
             z-index: 1000;
-            background: rgba(255,255,255,.94);
+            background: rgba(255, 255, 255, .94);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid transparent;
             transition: .3s ease;
@@ -144,7 +153,7 @@
 
         header.scrolled {
             border-bottom: 1px solid var(--border);
-            box-shadow: 0 5px 25px rgba(0,0,0,.04);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, .04);
         }
 
         nav {
@@ -154,15 +163,27 @@
             justify-content: space-between;
         }
 
+        /* Professional VP logo */
+
         .logo {
-            font-family: "Playfair Display", serif;
-            font-size: 27px;
-            font-weight: 700;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--primary);
             color: var(--primary);
+            font-family: "Playfair Display", serif;
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: .3s ease;
         }
 
-        .logo span {
-            color: var(--accent);
+        .logo:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
         }
 
         .nav-links {
@@ -212,6 +233,10 @@
             color: white !important;
         }
 
+        .nav-btn::after {
+            display: none;
+        }
+
         .menu-btn {
             display: none;
             font-size: 27px;
@@ -230,8 +255,8 @@
             align-items: center;
             background:
                 linear-gradient(
-                    rgba(247,249,252,.96),
-                    rgba(255,255,255,.99)
+                    rgba(247, 249, 252, .96),
+                    rgba(255, 255, 255, .99)
                 ),
                 radial-gradient(
                     circle at 80% 30%,
@@ -326,7 +351,7 @@
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(23,59,99,.22);
+            box-shadow: 0 12px 25px rgba(23, 59, 99, .22);
             background: #102e4d;
         }
 
@@ -608,7 +633,7 @@
 
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(2,1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 25px;
         }
 
@@ -677,17 +702,147 @@
         }
 
         .project-link {
-            display: inline-block;
-            margin-top: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 22px;
             color: var(--primary);
+            background: white;
+            border: 1px solid #ccd5df;
+            padding: 10px 16px;
             font-size: 13px;
             font-weight: 700;
+            cursor: pointer;
             transition: .3s;
         }
 
         .project-link:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           PROJECT MODAL
+        ========================= */
+
+        .project-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 31, 48, .72);
+            backdrop-filter: blur(6px);
+            z-index: 5000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+            opacity: 0;
+            visibility: hidden;
+            transition: .3s ease;
+        }
+
+        .project-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            width: min(700px, 100%);
+            max-height: 90vh;
+            overflow-y: auto;
+            background: white;
+            padding: 40px;
+            position: relative;
+            border-top: 4px solid var(--accent);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, .2);
+            transform: translateY(25px) scale(.98);
+            transition: .3s ease;
+        }
+
+        .project-modal.active .modal-content {
+            transform: translateY(0) scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 18px;
+            width: 38px;
+            height: 38px;
+            border: 1px solid var(--border);
+            background: white;
+            color: var(--primary);
+            font-size: 23px;
+            line-height: 1;
+            cursor: pointer;
+            transition: .25s;
+        }
+
+        .modal-close:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .modal-number {
             color: var(--accent);
-            transform: translateX(4px);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .modal-content h2 {
+            font-family: "Playfair Display", serif;
+            color: var(--primary);
+            font-size: 34px;
+            margin-bottom: 20px;
+            padding-right: 40px;
+        }
+
+        .modal-section {
+            margin-top: 25px;
+        }
+
+        .modal-section h4 {
+            color: var(--primary);
+            font-size: 15px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .modal-section p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .feature-list {
+            padding-left: 20px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .feature-list li {
+            margin-bottom: 8px;
+        }
+
+        .modal-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .modal-tech span {
+            padding: 7px 11px;
+            background: #f1f5f9;
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid var(--border);
         }
 
 
@@ -761,20 +916,20 @@
 
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(3,1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
 
         .contact-card {
             text-align: center;
-            border: 1px solid rgba(255,255,255,.15);
+            border: 1px solid rgba(255, 255, 255, .15);
             padding: 30px 20px;
             transition: .3s;
         }
 
         .contact-card:hover {
             transform: translateY(-6px);
-            background: rgba(255,255,255,.05);
+            background: rgba(255, 255, 255, .05);
         }
 
         .contact-icon {
@@ -930,10 +1085,19 @@
             .section-title h2 {
                 font-size: 35px;
             }
+
+            .modal-content {
+                padding: 30px 25px;
+            }
         }
 
 
         @media (max-width: 480px) {
+
+            .logo {
+                width: 39px;
+                height: 39px;
+            }
 
             .image-frame {
                 width: 280px;
@@ -950,6 +1114,10 @@
 
             .floating-card {
                 left: 0;
+            }
+
+            .modal-content h2 {
+                font-size: 28px;
             }
         }
 
@@ -979,9 +1147,12 @@
 
             <nav>
 
-                <a href="#home" class="logo">
-                    Vansh<span>.</span>
+                <!-- VP PROFESSIONAL LOGO -->
+
+                <a href="#home" class="logo" title="Vansh Patel">
+                    VP
                 </a>
+
 
                 <ul class="nav-links" id="navLinks">
 
@@ -1016,6 +1187,7 @@
                     </li>
 
                 </ul>
+
 
                 <div class="menu-btn" id="menuBtn">
                     ☰
@@ -1059,15 +1231,16 @@
                         reliable and professional digital solutions.
                     </p>
 
+
                     <div class="hero-buttons">
 
                         <a href="#projects"
-                           class="btn btn-primary">
+                            class="btn btn-primary">
                             View My Work →
                         </a>
 
                         <a href="#contact"
-                           class="btn btn-outline">
+                            class="btn btn-outline">
                             Contact Me
                         </a>
 
@@ -1077,19 +1250,19 @@
                     <div class="socials">
 
                         <a href="https://github.com/vanshpatel2323"
-                           target="_blank"
-                           title="GitHub">
+                            target="_blank"
+                            title="GitHub">
                             GH
                         </a>
 
                         <a href="https://www.linkedin.com/"
-                           target="_blank"
-                           title="LinkedIn">
+                            target="_blank"
+                            title="LinkedIn">
                             in
                         </a>
 
-                        <a href="mailto:your-email@example.com"
-                           title="Email">
+                        <a href="mailto:patelvansh23042004@gmail.com"
+                            title="Email">
                             @
                         </a>
 
@@ -1273,7 +1446,7 @@
                         <div class="skill-bar">
 
                             <div class="skill-progress"
-                                 data-width="85%">
+                                data-width="85%">
                             </div>
 
                         </div>
@@ -1291,7 +1464,7 @@
                         <div class="skill-bar">
 
                             <div class="skill-progress"
-                                 data-width="82%">
+                                data-width="82%">
                             </div>
 
                         </div>
@@ -1309,7 +1482,7 @@
                         <div class="skill-bar">
 
                             <div class="skill-progress"
-                                 data-width="88%">
+                                data-width="88%">
                             </div>
 
                         </div>
@@ -1327,7 +1500,7 @@
                         <div class="skill-bar">
 
                             <div class="skill-progress"
-                                 data-width="75%">
+                                data-width="75%">
                             </div>
 
                         </div>
@@ -1359,7 +1532,6 @@
                         <span class="tag">GitHub</span>
                         <span class="tag">Power BI</span>
                         <span class="tag">Excel</span>
-                        <span class="tag">Streamlit</span>
                         <span class="tag">Django</span>
 
                     </div>
@@ -1398,6 +1570,8 @@
             <div class="project-grid">
 
 
+                <!-- PROJECT 1 -->
+
                 <div class="project-card reveal">
 
                     <div class="project-number">
@@ -1418,17 +1592,20 @@
 
                         <span>Python</span>
                         <span>Machine Learning</span>
-                        <span>Streamlit</span>
                         <span>SQLite</span>
 
                     </div>
 
-                    <a href="#" class="project-link">
-                        View Project →
-                    </a>
+                    <button
+                        class="project-link"
+                        onclick="openProject('fraud')">
+                        Project Details →
+                    </button>
 
                 </div>
 
+
+                <!-- PROJECT 2 -->
 
                 <div class="project-card reveal">
 
@@ -1455,12 +1632,16 @@
 
                     </div>
 
-                    <a href="#" class="project-link">
-                        View Project →
-                    </a>
+                    <button
+                        class="project-link"
+                        onclick="openProject('medigpt')">
+                        Project Details →
+                    </button>
 
                 </div>
 
+
+                <!-- PROJECT 3 -->
 
                 <div class="project-card reveal">
 
@@ -1487,12 +1668,16 @@
 
                     </div>
 
-                    <a href="#" class="project-link">
-                        View Project →
-                    </a>
+                    <button
+                        class="project-link"
+                        onclick="openProject('cricket')">
+                        Project Details →
+                    </button>
 
                 </div>
 
+
+                <!-- PROJECT 4 -->
 
                 <div class="project-card reveal">
 
@@ -1519,9 +1704,11 @@
 
                     </div>
 
-                    <a href="#" class="project-link">
-                        View Project →
-                    </a>
+                    <button
+                        class="project-link"
+                        onclick="openProject('student')">
+                        Project Details →
+                    </button>
 
                 </div>
 
@@ -1530,6 +1717,68 @@
         </div>
 
     </section>
+
+
+    <!-- =========================
+         PROJECT DETAILS MODAL
+    ========================= -->
+
+    <div class="project-modal" id="projectModal">
+
+        <div class="modal-content">
+
+            <button
+                class="modal-close"
+                onclick="closeProject()">
+                ×
+            </button>
+
+            <div class="modal-number" id="modalNumber">
+                PROJECT
+            </div>
+
+            <h2 id="modalTitle">
+                Project Title
+            </h2>
+
+
+            <div class="modal-section">
+
+                <h4>Overview</h4>
+
+                <p id="modalOverview">
+                    Project overview.
+                </p>
+
+            </div>
+
+
+            <div class="modal-section">
+
+                <h4>Key Features</h4>
+
+                <ul
+                    class="feature-list"
+                    id="modalFeatures">
+                </ul>
+
+            </div>
+
+
+            <div class="modal-section">
+
+                <h4>Technologies Used</h4>
+
+                <div
+                    class="modal-tech"
+                    id="modalTech">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 
     <!-- =========================
@@ -1644,31 +1893,39 @@
             <div class="contact-grid">
 
 
-                <a href="mailto:your-email@example.com"
-                   class="contact-card reveal">
+                <!-- EMAIL -->
+
+                <a href="mailto:patelvansh23042004@gmail.com"
+                    class="contact-card reveal">
 
                     <div class="contact-icon">
                         ✉
                     </div>
 
-                    <h3>Email</h3>
+                    <h3>
+                        Email
+                    </h3>
 
                     <p>
-                        your-email@example.com
+                        patelvansh23042004@gmail.com
                     </p>
 
                 </a>
 
 
+                <!-- GITHUB -->
+
                 <a href="https://github.com/vanshpatel2323"
-                   target="_blank"
-                   class="contact-card reveal">
+                    target="_blank"
+                    class="contact-card reveal">
 
                     <div class="contact-icon">
                         ◉
                     </div>
 
-                    <h3>GitHub</h3>
+                    <h3>
+                        GitHub
+                    </h3>
 
                     <p>
                         github.com/vanshpatel2323
@@ -1677,15 +1934,19 @@
                 </a>
 
 
+                <!-- LINKEDIN -->
+
                 <a href="https://www.linkedin.com/"
-                   target="_blank"
-                   class="contact-card reveal">
+                    target="_blank"
+                    class="contact-card reveal">
 
                     <div class="contact-icon">
                         in
                     </div>
 
-                    <h3>LinkedIn</h3>
+                    <h3>
+                        LinkedIn
+                    </h3>
 
                     <p>
                         Connect with me professionally
@@ -1730,7 +1991,10 @@
 
     <script>
 
-        /* LOADER */
+
+        /* =========================
+           LOADER
+        ========================= */
 
         window.addEventListener("load", function () {
 
@@ -1745,7 +2009,9 @@
         });
 
 
-        /* MOBILE MENU */
+        /* =========================
+           MOBILE MENU
+        ========================= */
 
         const menuBtn =
             document.getElementById("menuBtn");
@@ -1773,7 +2039,9 @@
             });
 
 
-        /* HEADER SCROLL */
+        /* =========================
+           HEADER SCROLL
+        ========================= */
 
         const header =
             document.getElementById("header");
@@ -1793,7 +2061,9 @@
         });
 
 
-        /* SCROLL REVEAL */
+        /* =========================
+           SCROLL REVEAL
+        ========================= */
 
         const reveals =
             document.querySelectorAll(".reveal");
@@ -1826,7 +2096,9 @@
         revealOnScroll();
 
 
-        /* SKILL ANIMATION */
+        /* =========================
+           SKILL ANIMATION
+        ========================= */
 
         let skillsAnimated = false;
 
@@ -1867,7 +2139,271 @@
         animateSkills();
 
 
-        /* BACK TO TOP */
+        /* =========================
+           PROJECT DETAILS
+        ========================= */
+
+        const projectData = {
+
+            fraud: {
+
+                number: "01 / PROJECT",
+
+                title: "Fraud Detection System",
+
+                overview:
+                    "An AI-powered banking fraud detection system designed to identify suspicious financial transactions using machine learning and provide a practical interface for reviewing fraud predictions.",
+
+                features: [
+
+                    "Machine learning based fraud prediction",
+
+                    "Transaction analysis and fraud scoring",
+
+                    "Banking transaction data processing",
+
+                    "Fraud case management",
+
+                    "Database connectivity for storing records",
+
+                    "Interactive application interface"
+
+                ],
+
+                technologies: [
+                    "Python",
+                    "Machine Learning",
+                    "SQLite",
+                    "Pandas",
+                    "Scikit-learn"
+                ]
+
+            },
+
+
+            medigpt: {
+
+                number: "02 / PROJECT",
+
+                title: "MediGPT",
+
+                overview:
+                    "A medicine information assistant developed to provide useful medicine-related information through an easy-to-use web interface.",
+
+                features: [
+
+                    "Medicine information assistance",
+
+                    "Interactive user interface",
+
+                    "Python Flask backend",
+
+                    "AI-based response functionality",
+
+                    "Web-based application structure",
+
+                    "Designed for simple and accessible interaction"
+
+                ],
+
+                technologies: [
+                    "Python",
+                    "Flask",
+                    "AI",
+                    "HTML",
+                    "CSS",
+                    "JavaScript"
+                ]
+
+            },
+
+
+            cricket: {
+
+                number: "03 / PROJECT",
+
+                title: "Cricket Analytics",
+
+                overview:
+                    "A data analytics project focused on cleaning, exploring and understanding cricket performance data to discover useful patterns and insights.",
+
+                features: [
+
+                    "Data cleaning and preprocessing",
+
+                    "Exploratory data analysis",
+
+                    "Cricket performance analysis",
+
+                    "Statistical data exploration",
+
+                    "Data visualization",
+
+                    "Meaningful insights from sports data"
+
+                ],
+
+                technologies: [
+                    "Python",
+                    "Pandas",
+                    "NumPy",
+                    "Matplotlib",
+                    "Data Analytics"
+                ]
+
+            },
+
+
+            student: {
+
+                number: "04 / PROJECT",
+
+                title: "Student Portal",
+
+                overview:
+                    "A web-based student management portal designed to manage student information with authentication, records management and database connectivity.",
+
+                features: [
+
+                    "Student login and authentication",
+
+                    "Student record management",
+
+                    "Add and view student information",
+
+                    "Database connectivity",
+
+                    "Structured web interface",
+
+                    "MySQL database integration"
+
+                ],
+
+                technologies: [
+                    "PHP",
+                    "MySQL",
+                    "HTML",
+                    "CSS",
+                    "XAMPP"
+                ]
+
+            }
+
+        };
+
+
+        const projectModal =
+            document.getElementById("projectModal");
+
+        const modalNumber =
+            document.getElementById("modalNumber");
+
+        const modalTitle =
+            document.getElementById("modalTitle");
+
+        const modalOverview =
+            document.getElementById("modalOverview");
+
+        const modalFeatures =
+            document.getElementById("modalFeatures");
+
+        const modalTech =
+            document.getElementById("modalTech");
+
+
+        function openProject(projectName) {
+
+            const project =
+                projectData[projectName];
+
+            if (!project) return;
+
+
+            modalNumber.textContent =
+                project.number;
+
+            modalTitle.textContent =
+                project.title;
+
+            modalOverview.textContent =
+                project.overview;
+
+
+            modalFeatures.innerHTML = "";
+
+            project.features.forEach(function (feature) {
+
+                const li =
+                    document.createElement("li");
+
+                li.textContent =
+                    feature;
+
+                modalFeatures.appendChild(li);
+
+            });
+
+
+            modalTech.innerHTML = "";
+
+            project.technologies.forEach(function (technology) {
+
+                const span =
+                    document.createElement("span");
+
+                span.textContent =
+                    technology;
+
+                modalTech.appendChild(span);
+
+            });
+
+
+            projectModal.classList.add("active");
+
+            document.body.classList.add("modal-open");
+
+        }
+
+
+        function closeProject() {
+
+            projectModal.classList.remove("active");
+
+            document.body.classList.remove("modal-open");
+
+        }
+
+
+        /* Close modal when clicking outside */
+
+        projectModal.addEventListener("click", function (event) {
+
+            if (event.target === projectModal) {
+
+                closeProject();
+
+            }
+
+        });
+
+
+        /* Close modal with Escape key */
+
+        document.addEventListener("keydown", function (event) {
+
+            if (event.key === "Escape") {
+
+                closeProject();
+
+            }
+
+        });
+
+
+        /* =========================
+           BACK TO TOP
+        ========================= */
 
         const topBtn =
             document.getElementById("topBtn");
@@ -1890,14 +2426,19 @@
         topBtn.addEventListener("click", function () {
 
             window.scrollTo({
+
                 top: 0,
+
                 behavior: "smooth"
+
             });
 
         });
 
 
-        /* ACTIVE NAVIGATION */
+        /* =========================
+           ACTIVE NAVIGATION
+        ========================= */
 
         const sections =
             document.querySelectorAll("section");
@@ -1923,6 +2464,7 @@
 
             });
 
+
             navItems.forEach(function (link) {
 
                 link.style.color = "";
@@ -1944,4 +2486,5 @@
     </script>
 
 </body>
+
 </html>
