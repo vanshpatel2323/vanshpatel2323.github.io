@@ -1,657 +1,3 @@
-yes 
-
-Yes — make the Languages section use the exact same visual style as your Skills section, with a professional percentage bar.
-
-Use this version instead of the previous Languages code.
-
-HTML
-<!-- Languages Section -->
-<section id="languages" class="section">
-    <div class="section-title">
-        <span>LANGUAGES</span>
-        <h2>Languages</h2>
-        <p>My communication and language proficiency.</p>
-    </div>
-
-    <div class="skills-container">
-
-        <div class="skill reveal">
-            <div class="skill-info">
-                <h3>English</h3>
-                <span>Grade A</span>
-                <strong>85%</strong>
-            </div>
-
-            <div class="skill-bar">
-                <div class="skill-progress" style="width: 85%;"></div>
-            </div>
-        </div>
-
-        <div class="skill reveal">
-            <div class="skill-info">
-                <h3>Hindi</h3>
-                <span>Grade A+</span>
-                <strong>95%</strong>
-            </div>
-
-            <div class="skill-bar">
-                <div class="skill-progress" style="width: 95%;"></div>
-            </div>
-        </div>
-
-        <div class="skill reveal">
-            <div class="skill-info">
-                <h3>Gujarati</h3>
-                <span>Grade A+</span>
-                <strong>95%</strong>
-            </div>
-
-            <div class="skill-bar">
-                <div class="skill-progress" style="width: 95%;"></div>
-            </div>
-        </div>
-
-        <div class="skill reveal">
-            <div class="skill-info">
-                <h3>Marathi</h3>
-                <span>Grade B+</span>
-                <strong>75%</strong>
-            </div>
-
-            <div class="skill-bar">
-                <div class="skill-progress" style="width: 75%;"></div>
-            </div>
-        </div>
-
-    </div>
-</section>
-CSS
-
-Because this reuses your existing Skills classes (skills-container, skill, skill-info, skill-bar, skill-progress), you don't need additional CSS if your Skills section already has those styles.
-
-The result will look consistent:
-
-LANGUAGES
-Languages
-My communication and language proficiency.
-
-English                         Grade A        85%
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Hindi                           Grade A+       95%
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Gujarati                        Grade A+       95%
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Marathi                         Grade B+       75%
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-This is better than separate language cards because Skills and Languages will have the same professional visual system.
-
-Pasted text(4).txt
-Document
-now you add language code and give me final updated code
-
-Done. I added the Languages section directly into your existing portfolio code, matching the same professional percentage-bar style as your Skills section. I also added Languages to the navigation and included the animation for the language bars. Your existing projects, modal, profile photo, contact section, and other design remain unchanged.
-
-Download the final updated code
-
-Download index_updated.html
-
-Languages added
-English — Grade A — 85%
-Hindi — Grade A+ — 95%
-Gujarati — Grade A+ — 95%
-Marathi — Grade B+ — 75%
-
-The new section is positioned between Skills and Projects, so the portfolio flow is:
-
-Home → About → Skills → Languages → Projects → Journey → Contact.
-
-index_updated.html
-HTML
-give me code not file
-
-Yes. Here is the code directly with the new Languages section added.
-
-<!-- ==================== LANGUAGES SECTION ==================== -->
-<section id="languages" class="section">
-    <div class="container">
-
-        <div class="section-heading reveal">
-            <span class="section-tag">LANGUAGES</span>
-            <h2>Language Proficiency</h2>
-            <p>My communication skills across different languages.</p>
-        </div>
-
-        <div class="skills-grid">
-
-            <!-- English -->
-            <div class="skill reveal">
-                <div class="skill-header">
-                    <span>English</span>
-                    <span>Grade A · 85%</span>
-                </div>
-
-                <div class="skill-bar">
-                    <div class="skill-progress" data-width="85%"></div>
-                </div>
-            </div>
-
-            <!-- Hindi -->
-            <div class="skill reveal">
-                <div class="skill-header">
-                    <span>Hindi</span>
-                    <span>Grade A+ · 95%</span>
-                </div>
-
-                <div class="skill-bar">
-                    <div class="skill-progress" data-width="95%"></div>
-                </div>
-            </div>
-
-            <!-- Gujarati -->
-            <div class="skill reveal">
-                <div class="skill-header">
-                    <span>Gujarati</span>
-                    <span>Grade A+ · 95%</span>
-                </div>
-
-                <div class="skill-bar">
-                    <div class="skill-progress" data-width="95%"></div>
-                </div>
-            </div>
-
-            <!-- Marathi -->
-            <div class="skill reveal">
-                <div class="skill-header">
-                    <span>Marathi</span>
-                    <span>Grade B+ · 75%</span>
-                </div>
-
-                <div class="skill-bar">
-                    <div class="skill-progress" data-width="75%"></div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-Add this in your navbar
-
-Put Languages after Skills:
-
-<li>
-    <a href="#languages">Languages</a>
-</li>
-Add this JavaScript
-
-Put this along with your existing JavaScript:
-
-// ==================== LANGUAGE BAR ANIMATION ====================
-function animateLanguages() {
-    const languageSection = document.querySelector("#languages");
-
-    if (!languageSection) return;
-
-    const bars = languageSection.querySelectorAll(".skill-progress");
-
-    bars.forEach(bar => {
-        const width = bar.getAttribute("data-width");
-
-        if (width) {
-            bar.style.width = width;
-        }
-    });
-}
-
-// Trigger language animation when section enters viewport
-const languageObserver = new IntersectionObserver(
-    (entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateLanguages();
-                languageObserver.unobserve(entry.target);
-            }
-        });
-    },
-    {
-        threshold: 0.2
-    }
-);
-
-const languageSection = document.querySelector("#languages");
-
-if (languageSection) {
-    languageObserver.observe(languageSection);
-}
-Your portfolio order will be
-
-Home → About → Skills → Languages → Projects → Journey → Contact
-
-The Languages section uses the same professional percentage-bar design as your Skills section, so it will look consistent with the rest of your portfolio.
-
-Pasted text(5).txt
-Document
- here it is my code and give me updated code 
-
-Absolutely. Below is the final updated code for the Languages section, using your current portfolio's existing style and JavaScript.
-
-Replace your current Languages CSS + HTML with the following. Everything else in your portfolio remains unchanged.
-
-1. Languages CSS
-/* =========================
-   LANGUAGES
-   PROFESSIONAL CARDS
-========================= */
-
-#languages {
-    background: var(--background);
-}
-
-.languages-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-}
-
-/* LANGUAGE CARD */
-
-.language-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    padding: 28px;
-    position: relative;
-    overflow: hidden;
-    transition: .35s ease;
-    box-shadow: 0 8px 25px rgba(23, 59, 99, 0.04);
-}
-
-/* Top animated line */
-
-.language-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background: var(--accent);
-    transition: width .4s ease;
-}
-
-.language-card:hover::before {
-    width: 100%;
-}
-
-/* Card hover */
-
-.language-card:hover {
-    transform: translateY(-7px);
-    border-color: var(--primary);
-    box-shadow: var(--shadow);
-}
-
-/* Language header */
-
-.language-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 8px;
-}
-
-.language-name {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.language-icon {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--border);
-    background: #fbfcfe;
-    color: var(--primary);
-    font-size: 13px;
-    font-weight: 700;
-    transition: .3s ease;
-}
-
-.language-card:hover .language-icon {
-    background: var(--primary);
-    color: white;
-    border-color: var(--primary);
-    transform: scale(1.05);
-}
-
-.language-name h3 {
-    color: var(--primary);
-    font-size: 17px;
-    font-weight: 700;
-    margin: 0;
-}
-
-/* Language level */
-
-.language-level {
-    color: var(--muted);
-    font-size: 13px;
-    margin: 3px 0 18px 52px;
-}
-
-/* Percentage */
-
-.language-percent {
-    color: var(--primary);
-    font-size: 14px;
-    font-weight: 700;
-    white-space: nowrap;
-}
-
-/* Percentage bar */
-
-.language-bar {
-    width: 100%;
-    height: 7px;
-    background: #e9edf2;
-    overflow: hidden;
-    border-radius: 10px;
-}
-
-.language-progress {
-    height: 100%;
-    width: 0;
-    background: var(--primary);
-    border-radius: 10px;
-    transition: width 1.5s ease;
-}
-
-/* Mobile */
-
-@media (max-width: 850px) {
-
-    .languages-grid {
-        grid-template-columns: 1fr;
-    }
-
-}
-2. Final Languages HTML
-<!-- =========================
-     LANGUAGES
-     PROFESSIONAL CARDS
-========================= -->
-
-<section class="section" id="languages">
-
-    <div class="container">
-
-        <div class="section-title reveal">
-
-            <span>Languages</span>
-
-            <h2>Language Proficiency</h2>
-
-            <p>
-                My communication skills across different languages.
-            </p>
-
-        </div>
-
-
-        <div class="languages-grid">
-
-
-            <!-- ENGLISH -->
-
-            <div class="language-card reveal">
-
-                <div class="language-header">
-
-                    <div class="language-name">
-
-                        <div class="language-icon">
-                            EN
-                        </div>
-
-                        <h3>
-                            English
-                        </h3>
-
-                    </div>
-
-                    <span class="language-percent">
-                        60%
-                    </span>
-
-                </div>
-
-                <div class="language-level">
-                    Pre-Intermediate (A2)
-                </div>
-
-                <div class="language-bar">
-
-                    <div
-                        class="language-progress"
-                        data-width="60%">
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- HINDI -->
-
-            <div class="language-card reveal">
-
-                <div class="language-header">
-
-                    <div class="language-name">
-
-                        <div class="language-icon">
-                            HI
-                        </div>
-
-                        <h3>
-                            Hindi
-                        </h3>
-
-                    </div>
-
-                    <span class="language-percent">
-                        70%
-                    </span>
-
-                </div>
-
-                <div class="language-level">
-                    Intermediate (B1)
-                </div>
-
-                <div class="language-bar">
-
-                    <div
-                        class="language-progress"
-                        data-width="70%">
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- GUJARATI -->
-
-            <div class="language-card reveal">
-
-                <div class="language-header">
-
-                    <div class="language-name">
-
-                        <div class="language-icon">
-                            GU
-                        </div>
-
-                        <h3>
-                            Gujarati
-                        </h3>
-
-                    </div>
-
-                    <span class="language-percent">
-                        95%
-                    </span>
-
-                </div>
-
-                <div class="language-level">
-                    Native Language
-                </div>
-
-                <div class="language-bar">
-
-                    <div
-                        class="language-progress"
-                        data-width="95%">
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- MARATHI -->
-
-            <div class="language-card reveal">
-
-                <div class="language-header">
-
-                    <div class="language-name">
-
-                        <div class="language-icon">
-                            MR
-                        </div>
-
-                        <h3>
-                            Marathi
-                        </h3>
-
-                    </div>
-
-                    <span class="language-percent">
-                        60%
-                    </span>
-
-                </div>
-
-                <div class="language-level">
-                    Pre-Intermediate (A2)
-                </div>
-
-                <div class="language-bar">
-
-                    <div
-                        class="language-progress"
-                        data-width="60%">
-                    </div>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-3. JavaScript — no change required
-
-Your current JavaScript already handles the animated language bars:
-
-let languagesAnimated = false;
-
-function animateLanguages() {
-
-    const languagesSection =
-        document.getElementById("languages");
-
-    if (!languagesSection) return;
-
-    const position =
-        languagesSection.getBoundingClientRect().top;
-
-    if (
-        position <
-        window.innerHeight - 100 &&
-        !languagesAnimated
-    ) {
-
-        document
-            .querySelectorAll(
-                "#languages .language-progress"
-            )
-            .forEach(function (bar) {
-
-                bar.style.width =
-                    bar.dataset.width;
-
-            });
-
-        languagesAnimated = true;
-    }
-}
-
-window.addEventListener(
-    "scroll",
-    animateLanguages
-);
-
-animateLanguages();
-
-This works with your existing portfolio's language-animation system.
-
-Final result: 4 separate professional cards → English | Hindi | Gujarati | Marathi, each with percentage, proficiency level, animated line bar, and hover elevation/top-line effect.
-
-give me full and finall updayed code full code get it
-
-Yes — I got it. You want the complete final index.html, not just the Languages section.
-
-I have updated your existing portfolio while keeping the rest of your design, projects, navigation, animations, modal, profile image, skills, journey, and contact section intact. The main change is the 4 professional Language cards with hover effects + animated percentage bars.
-
-Your final file is ready here:
-
-Download the final updated index.html
-
-Final Languages
-🇬🇧 English — Pre-Intermediate (A2) — 60%
-🇮🇳 Hindi — Intermediate (B1) — 70%
-🇮🇳 Gujarati — Native Language — 95%
-🇮🇳 Marathi — Pre-Intermediate (A2) — 60%
-
-It includes:
-
-Professional 2×2 cards
-Card hover/lift effect
-Animated gold top border
-EN / HI / GU / MR language badges
-Percentage display
-Animated percentage bars
-Responsive mobile layout
-Existing scroll animation preserved
-
-Use this file as your final index.html in GitHub. Keep your profile.jpg in the same repository folder so the existing src="profile.jpg" continues working.
-
-index_final_updated.html
-HTML
-give me only code
 <!DOCTYPE html>
 <html lang="en">
 
@@ -659,18 +5,16 @@ give me only code
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Vansh Patel | Software Developer & Data Analyst</title>
+    <title>Vansh Patel | Software & Mobile Application Developer & Data Analyst</title>
 
     <meta name="description"
-        content="Vansh Patel - IT Student, Software Developer and aspiring Data Analyst. Explore my skills, projects and professional journey.">
+        content="Vansh Patel - Software & Mobile Application Developer and Data Analyst Portfolio">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
         rel="stylesheet">
-
 
     <style>
 
@@ -701,7 +45,8 @@ give me only code
             font-family: "Inter", sans-serif;
             color: var(--text);
             background: var(--white);
-            line-height: 1.7;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
         body.modal-open {
@@ -718,12 +63,39 @@ give me only code
         }
 
         .container {
-            width: min(1150px, 90%);
+            width: min(1120px, 90%);
             margin: auto;
         }
 
         .section {
             padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title span {
+            display: inline-block;
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .section-title h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 42px;
+            color: var(--primary);
+        }
+
+        .section-title p {
+            max-width: 650px;
+            margin: 12px auto 0;
+            color: var(--muted);
         }
 
 
@@ -735,10 +107,10 @@ give me only code
             position: fixed;
             inset: 0;
             background: var(--white);
+            z-index: 9999;
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 9999;
             transition: opacity .5s ease, visibility .5s ease;
         }
 
@@ -750,13 +122,13 @@ give me only code
         .loader-circle {
             width: 45px;
             height: 45px;
-            border: 4px solid #e5eaf0;
+            border: 3px solid #e5eaf0;
             border-top-color: var(--primary);
             border-radius: 50%;
-            animation: loaderSpin 1s linear infinite;
+            animation: spin 1s linear infinite;
         }
 
-        @keyframes loaderSpin {
+        @keyframes spin {
             to {
                 transform: rotate(360deg);
             }
@@ -767,78 +139,107 @@ give me only code
            HEADER
         ========================= */
 
-        #header {
+        header {
             position: fixed;
+            width: 100%;
             top: 0;
             left: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, .96);
-            border-bottom: 1px solid transparent;
             z-index: 1000;
+            background: rgba(255, 255, 255, .94);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid transparent;
             transition: .3s ease;
         }
 
-        #header.scrolled {
-            border-bottom-color: var(--border);
+        header.scrolled {
+            border-bottom: 1px solid var(--border);
             box-shadow: 0 5px 25px rgba(0, 0, 0, .04);
         }
 
         nav {
-            min-height: 76px;
+            height: 76px;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
+        /* Professional VP logo */
+
         .logo {
-            width: 45px;
-            height: 45px;
-            background: var(--primary);
-            color: white;
+            width: 42px;
+            height: 42px;
             display: flex;
             align-items: center;
             justify-content: center;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            font-family: "Playfair Display", serif;
+            font-size: 17px;
             font-weight: 700;
             letter-spacing: 1px;
             transition: .3s ease;
         }
 
         .logo:hover {
-            background: var(--accent);
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
         }
 
         .nav-links {
-            list-style: none;
             display: flex;
             align-items: center;
             gap: 30px;
+            list-style: none;
         }
 
         .nav-links a {
             font-size: 14px;
             font-weight: 600;
-            color: var(--muted);
-            transition: .3s ease;
+            color: #4b5867;
+            transition: .25s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            bottom: -7px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: .3s;
         }
 
         .nav-links a:hover {
             color: var(--primary);
         }
 
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
         .nav-btn {
-            background: var(--primary);
-            color: white !important;
             padding: 11px 20px;
-            transition: .3s ease;
+            border: 1px solid var(--primary);
+            border-radius: 5px;
+            color: var(--primary) !important;
         }
 
         .nav-btn:hover {
-            background: var(--accent);
+            background: var(--primary);
+            color: white !important;
+        }
+
+        .nav-btn::after {
+            display: none;
         }
 
         .menu-btn {
             display: none;
-            font-size: 25px;
+            font-size: 27px;
             cursor: pointer;
             color: var(--primary);
         }
@@ -852,38 +253,57 @@ give me only code
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding-top: 100px;
             background:
                 linear-gradient(
-                    135deg,
-                    #ffffff 0%,
-                    #f7f9fc 100%
+                    rgba(247, 249, 252, .96),
+                    rgba(255, 255, 255, .99)
+                ),
+                radial-gradient(
+                    circle at 80% 30%,
+                    #dce8f5,
+                    transparent 35%
                 );
+            padding-top: 76px;
         }
 
         .hero-grid {
             display: grid;
             grid-template-columns: 1.15fr .85fr;
-            gap: 80px;
             align-items: center;
+            gap: 70px;
+        }
+
+        .hero-content {
+            animation: slideLeft .9s ease forwards;
+        }
+
+        @keyframes slideLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .eyebrow {
-            display: inline-block;
             color: var(--accent);
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 700;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .hero h1 {
             font-family: "Playfair Display", serif;
-            font-size: clamp(48px, 6vw, 72px);
-            line-height: 1.1;
             color: var(--primary);
-            margin-bottom: 18px;
+            font-size: clamp(48px, 6vw, 72px);
+            line-height: 1.08;
+            margin-bottom: 20px;
         }
 
         .hero h1 span {
@@ -892,13 +312,13 @@ give me only code
 
         .hero h3 {
             font-size: 22px;
-            color: var(--text);
-            margin-bottom: 18px;
             font-weight: 600;
+            color: #3f4c5b;
+            margin-bottom: 18px;
         }
 
         .hero p {
-            max-width: 650px;
+            max-width: 620px;
             color: var(--muted);
             font-size: 16px;
             margin-bottom: 30px;
@@ -907,79 +327,102 @@ give me only code
         .hero-buttons {
             display: flex;
             gap: 15px;
-            margin-bottom: 30px;
+            flex-wrap: wrap;
         }
 
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             padding: 13px 24px;
+            border-radius: 5px;
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 700;
             transition: .3s ease;
+            cursor: pointer;
         }
 
         .btn-primary {
             background: var(--primary);
             color: white;
+            border: 1px solid var(--primary);
         }
 
         .btn-primary:hover {
-            background: var(--accent);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(23, 59, 99, .22);
+            background: #102e4d;
         }
 
         .btn-outline {
-            border: 1px solid var(--primary);
+            border: 1px solid #ccd5df;
             color: var(--primary);
+            background: white;
         }
 
         .btn-outline:hover {
-            background: var(--primary);
-            color: white;
+            border-color: var(--primary);
+            transform: translateY(-3px);
         }
 
         .socials {
             display: flex;
             gap: 12px;
+            margin-top: 28px;
         }
 
         .socials a {
-            width: 40px;
-            height: 40px;
+            width: 39px;
+            height: 39px;
             border: 1px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--primary);
+            border-radius: 50%;
             font-size: 13px;
             font-weight: 700;
-            transition: .3s ease;
+            color: var(--primary);
+            background: white;
+            transition: .3s;
         }
 
         .socials a:hover {
+            transform: translateY(-4px);
             background: var(--primary);
             color: white;
-            border-color: var(--primary);
-            transform: translateY(-3px);
         }
 
 
         /* =========================
-           PROFILE IMAGE
+           PROFILE PHOTO
         ========================= */
 
         .hero-image {
             position: relative;
             display: flex;
             justify-content: center;
+            animation: slideRight 1s ease forwards;
+        }
+
+        @keyframes slideRight {
+            from {
+                opacity: 0;
+                transform: translateX(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .image-frame {
-            width: 360px;
-            height: 450px;
-            border: 1px solid var(--border);
+            width: 350px;
+            height: 420px;
             background: white;
-            padding: 10px;
+            border: 1px solid var(--border);
+            padding: 12px;
             box-shadow: var(--shadow);
             position: relative;
             overflow: hidden;
@@ -988,73 +431,58 @@ give me only code
         .image-frame::before {
             content: "";
             position: absolute;
-            top: -10px;
-            right: -10px;
             width: 100px;
             height: 100px;
             border-top: 4px solid var(--accent);
+            border-left: 4px solid var(--accent);
+            top: -14px;
+            left: -14px;
+            z-index: 3;
+        }
+
+        .image-frame::after {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-bottom: 4px solid var(--accent);
             border-right: 4px solid var(--accent);
-            z-index: 2;
-            pointer-events: none;
+            bottom: -14px;
+            right: -14px;
+            z-index: 3;
         }
 
         .profile-photo {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
+            object-position: center;
+            transition: transform .6s ease;
+        }
+
+        .image-frame:hover .profile-photo {
+            transform: scale(1.04);
         }
 
         .floating-card {
             position: absolute;
             bottom: 25px;
-            left: 5px;
+            left: -25px;
             background: white;
-            padding: 18px 22px;
+            padding: 15px 20px;
             box-shadow: var(--shadow);
             border-left: 3px solid var(--accent);
+            z-index: 5;
         }
 
         .floating-card strong {
             display: block;
             color: var(--primary);
-            font-size: 15px;
+            font-size: 20px;
         }
 
         .floating-card small {
             color: var(--muted);
-            font-size: 12px;
-        }
-
-
-        /* =========================
-           SECTION TITLE
-        ========================= */
-
-        .section-title {
-            max-width: 700px;
-            margin-bottom: 55px;
-        }
-
-        .section-title span {
-            color: var(--accent);
-            text-transform: uppercase;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-        }
-
-        .section-title h2 {
-            font-family: "Playfair Display", serif;
-            font-size: 48px;
-            color: var(--primary);
-            margin: 8px 0 15px;
-            line-height: 1.2;
-        }
-
-        .section-title p {
-            color: var(--muted);
-            font-size: 15px;
         }
 
 
@@ -1068,22 +496,29 @@ give me only code
 
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: .9fr 1.1fr;
             gap: 70px;
             align-items: center;
         }
 
         .about-box {
             background: white;
-            padding: 40px;
             border: 1px solid var(--border);
-            box-shadow: 0 8px 25px rgba(23, 59, 99, .04);
+            padding: 35px;
+            box-shadow: var(--shadow);
+            position: relative;
+            transition: .35s ease;
+        }
+
+        .about-box:hover {
+            transform: translateY(-5px);
         }
 
         .about-box h3 {
-            font-size: 27px;
             color: var(--primary);
-            margin-bottom: 20px;
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            margin-bottom: 15px;
         }
 
         .about-box p {
@@ -1094,20 +529,28 @@ give me only code
         .about-info {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 15px;
+            margin-top: 25px;
         }
 
         .info-item {
-            padding: 22px;
-            background: white;
+            padding: 17px;
             border: 1px solid var(--border);
+            background: #fbfcfe;
+            transition: .3s ease;
+        }
+
+        .info-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
         }
 
         .info-item small {
-            display: block;
             color: var(--muted);
-            font-size: 12px;
-            margin-bottom: 5px;
+            display: block;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .info-item strong {
@@ -1120,14 +563,10 @@ give me only code
            SKILLS
         ========================= */
 
-        #skills {
-            background: white;
-        }
-
         .skills-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 70px;
+            gap: 60px;
         }
 
         .skill {
@@ -1138,12 +577,12 @@ give me only code
             display: flex;
             justify-content: space-between;
             margin-bottom: 8px;
-        }
-
-        .skill-header span {
-            color: var(--primary);
             font-size: 14px;
             font-weight: 600;
+        }
+
+        .skill-header span:last-child {
+            color: var(--muted);
         }
 
         .skill-bar {
@@ -1169,138 +608,18 @@ give me only code
         }
 
         .tag {
-            padding: 9px 14px;
+            padding: 9px 15px;
             border: 1px solid var(--border);
             color: var(--primary);
-            background: #fbfcfe;
+            background: white;
             font-size: 13px;
             font-weight: 600;
-            transition: .3s ease;
+            transition: .25s;
         }
 
         .tag:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-            transform: translateY(-2px);
-        }
-
-
-        /* =========================
-           LANGUAGES
-           PROFESSIONAL CARDS
-        ========================= */
-
-        #languages {
-            background: var(--background);
-        }
-
-        .languages-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        .language-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            padding: 28px;
-            position: relative;
-            overflow: hidden;
-            transition: .35s ease;
-            box-shadow: 0 8px 25px rgba(23, 59, 99, 0.04);
-        }
-
-        .language-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--accent);
-            transition: width .4s ease;
-        }
-
-        .language-card:hover::before {
-            width: 100%;
-        }
-
-        .language-card:hover {
-            transform: translateY(-7px);
-            border-color: var(--primary);
-            box-shadow: var(--shadow);
-        }
-
-        .language-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 8px;
-        }
-
-        .language-name {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .language-icon {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--border);
-            background: #fbfcfe;
-            color: var(--primary);
-            font-size: 13px;
-            font-weight: 700;
-            transition: .3s ease;
-        }
-
-        .language-card:hover .language-icon {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-            transform: scale(1.05);
-        }
-
-        .language-name h3 {
-            color: var(--primary);
-            font-size: 17px;
-            font-weight: 700;
-            margin: 0;
-        }
-
-        .language-level {
-            color: var(--muted);
-            font-size: 13px;
-            margin: 3px 0 18px 52px;
-        }
-
-        .language-percent {
-            color: var(--primary);
-            font-size: 14px;
-            font-weight: 700;
-            white-space: nowrap;
-        }
-
-        .language-bar {
-            width: 100%;
-            height: 7px;
-            background: #e9edf2;
-            overflow: hidden;
-            border-radius: 10px;
-        }
-
-        .language-progress {
-            height: 100%;
-            width: 0;
-            background: var(--primary);
-            border-radius: 10px;
-            transition: width 1.5s ease;
+            border-color: var(--accent);
+            transform: translateY(-3px);
         }
 
 
@@ -1309,7 +628,7 @@ give me only code
         ========================= */
 
         .projects {
-            background: white;
+            background: var(--background);
         }
 
         .project-grid {
@@ -1319,68 +638,89 @@ give me only code
         }
 
         .project-card {
-            padding: 35px;
-            border: 1px solid var(--border);
             background: white;
+            border: 1px solid var(--border);
+            padding: 30px;
             transition: .35s ease;
             position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--accent);
+            transition: .4s;
         }
 
         .project-card:hover {
-            transform: translateY(-7px);
+            transform: translateY(-8px);
             box-shadow: var(--shadow);
-            border-color: var(--primary);
+        }
+
+        .project-card:hover::before {
+            width: 100%;
         }
 
         .project-number {
             color: var(--accent);
-            font-size: 11px;
+            font-size: 13px;
             font-weight: 700;
             letter-spacing: 1px;
             margin-bottom: 20px;
         }
 
         .project-card h3 {
+            font-family: "Playfair Display", serif;
             color: var(--primary);
-            font-size: 24px;
-            margin-bottom: 15px;
+            font-size: 25px;
+            margin-bottom: 12px;
         }
 
         .project-card p {
             color: var(--muted);
             font-size: 14px;
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
 
         .project-tech {
             display: flex;
-            flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 25px;
+            flex-wrap: wrap;
         }
 
         .project-tech span {
-            padding: 6px 10px;
-            background: #f4f7fa;
-            color: var(--primary);
+            padding: 5px 9px;
+            background: #f1f5f9;
+            color: #516174;
             font-size: 11px;
             font-weight: 600;
         }
 
         .project-link {
-            border: none;
-            background: transparent;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 22px;
             color: var(--primary);
+            background: white;
+            border: 1px solid #ccd5df;
+            padding: 10px 16px;
             font-size: 13px;
             font-weight: 700;
             cursor: pointer;
-            padding: 0;
-            transition: .3s ease;
+            transition: .3s;
         }
 
         .project-link:hover {
-            color: var(--accent);
-            transform: translateX(4px);
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
         }
 
 
@@ -1391,7 +731,9 @@ give me only code
         .project-modal {
             position: fixed;
             inset: 0;
-            background: rgba(10, 25, 40, .72);
+            background: rgba(15, 31, 48, .72);
+            backdrop-filter: blur(6px);
+            z-index: 5000;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1399,7 +741,6 @@ give me only code
             opacity: 0;
             visibility: hidden;
             transition: .3s ease;
-            z-index: 3000;
         }
 
         .project-modal.active {
@@ -1412,28 +753,31 @@ give me only code
             max-height: 90vh;
             overflow-y: auto;
             background: white;
-            padding: 45px;
+            padding: 40px;
             position: relative;
-            transform: translateY(25px);
+            border-top: 4px solid var(--accent);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, .2);
+            transform: translateY(25px) scale(.98);
             transition: .3s ease;
         }
 
         .project-modal.active .modal-content {
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
         }
 
         .modal-close {
             position: absolute;
-            right: 20px;
             top: 15px;
-            width: 35px;
-            height: 35px;
-            border: none;
-            background: #f1f4f7;
+            right: 18px;
+            width: 38px;
+            height: 38px;
+            border: 1px solid var(--border);
+            background: white;
             color: var(--primary);
-            font-size: 24px;
+            font-size: 23px;
+            line-height: 1;
             cursor: pointer;
-            transition: .3s ease;
+            transition: .25s;
         }
 
         .modal-close:hover {
@@ -1443,32 +787,37 @@ give me only code
 
         .modal-number {
             color: var(--accent);
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
         }
 
         .modal-content h2 {
             font-family: "Playfair Display", serif;
             color: var(--primary);
-            font-size: 38px;
-            margin-bottom: 30px;
+            font-size: 34px;
+            margin-bottom: 20px;
+            padding-right: 40px;
         }
 
         .modal-section {
-            margin-bottom: 25px;
+            margin-top: 25px;
         }
 
         .modal-section h4 {
             color: var(--primary);
             font-size: 15px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .modal-section p {
             color: var(--muted);
             font-size: 14px;
+            line-height: 1.8;
         }
 
         .feature-list {
@@ -1478,7 +827,7 @@ give me only code
         }
 
         .feature-list li {
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
         .modal-tech {
@@ -1488,11 +837,12 @@ give me only code
         }
 
         .modal-tech span {
-            padding: 7px 12px;
-            background: #f4f7fa;
+            padding: 7px 11px;
+            background: #f1f5f9;
             color: var(--primary);
             font-size: 12px;
             font-weight: 600;
+            border: 1px solid var(--border);
         }
 
 
@@ -1500,48 +850,45 @@ give me only code
            JOURNEY
         ========================= */
 
-        #experience {
-            background: var(--background);
-        }
-
         .timeline {
             max-width: 850px;
+            margin: auto;
             border-left: 2px solid var(--border);
-            margin-left: 10px;
+            padding-left: 35px;
         }
 
         .timeline-item {
             position: relative;
-            padding: 0 0 50px 40px;
+            margin-bottom: 40px;
+            transition: .3s ease;
         }
 
-        .timeline-item:last-child {
-            padding-bottom: 0;
+        .timeline-item:hover {
+            transform: translateX(5px);
         }
 
         .timeline-item::before {
             content: "";
             position: absolute;
-            left: -8px;
-            top: 3px;
-            width: 14px;
-            height: 14px;
+            width: 11px;
+            height: 11px;
             background: var(--accent);
-            border: 3px solid var(--background);
             border-radius: 50%;
+            left: -42px;
+            top: 5px;
+            border: 3px solid white;
+            box-shadow: 0 0 0 1px var(--accent);
         }
 
         .timeline-item small {
             color: var(--accent);
-            font-size: 11px;
             font-weight: 700;
-            letter-spacing: 1px;
         }
 
         .timeline-item h3 {
             color: var(--primary);
-            font-size: 22px;
-            margin: 8px 0 12px;
+            font-size: 20px;
+            margin: 5px 0;
         }
 
         .timeline-item p {
@@ -1555,7 +902,16 @@ give me only code
         ========================= */
 
         .contact {
-            background: white;
+            background: var(--primary);
+            color: white;
+        }
+
+        .contact .section-title h2 {
+            color: white;
+        }
+
+        .contact .section-title p {
+            color: #c5d1df;
         }
 
         .contact-grid {
@@ -1565,43 +921,29 @@ give me only code
         }
 
         .contact-card {
-            padding: 30px;
-            border: 1px solid var(--border);
             text-align: center;
-            transition: .35s ease;
+            border: 1px solid rgba(255, 255, 255, .15);
+            padding: 30px 20px;
+            transition: .3s;
         }
 
         .contact-card:hover {
             transform: translateY(-6px);
-            border-color: var(--primary);
-            box-shadow: var(--shadow);
+            background: rgba(255, 255, 255, .05);
         }
 
         .contact-icon {
-            width: 50px;
-            height: 50px;
-            margin: 0 auto 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--primary);
-            color: white;
-            font-weight: 700;
-            transition: .3s ease;
-        }
-
-        .contact-card:hover .contact-icon {
-            background: var(--accent);
+            font-size: 27px;
+            margin-bottom: 12px;
         }
 
         .contact-card h3 {
-            color: var(--primary);
-            margin-bottom: 8px;
-            font-size: 17px;
+            font-size: 16px;
+            margin-bottom: 7px;
         }
 
         .contact-card p {
-            color: var(--muted);
+            color: #c5d1df;
             font-size: 13px;
             word-break: break-word;
         }
@@ -1701,8 +1043,7 @@ give me only code
 
             .hero-grid,
             .about-grid,
-            .skills-grid,
-            .languages-grid {
+            .skills-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1778,11 +1119,9 @@ give me only code
             .modal-content h2 {
                 font-size: 28px;
             }
-
         }
 
     </style>
-
 </head>
 
 
@@ -1808,9 +1147,12 @@ give me only code
 
             <nav>
 
+                <!-- VP PROFESSIONAL LOGO -->
+
                 <a href="#home" class="logo" title="Vansh Patel">
                     VP
                 </a>
+
 
                 <ul class="nav-links" id="navLinks">
 
@@ -1824,10 +1166,6 @@ give me only code
 
                     <li>
                         <a href="#skills">Skills</a>
-                    </li>
-
-                    <li>
-                        <a href="#languages">Languages</a>
                     </li>
 
                     <li>
@@ -1850,6 +1188,7 @@ give me only code
 
                 </ul>
 
+
                 <div class="menu-btn" id="menuBtn">
                     ☰
                 </div>
@@ -1871,6 +1210,7 @@ give me only code
 
             <div class="hero-grid">
 
+
                 <div class="hero-content">
 
                     <div class="eyebrow">
@@ -1891,17 +1231,21 @@ give me only code
                         reliable and professional digital solutions.
                     </p>
 
+
                     <div class="hero-buttons">
 
-                        <a href="#projects" class="btn btn-primary">
+                        <a href="#projects"
+                            class="btn btn-primary">
                             View My Work →
                         </a>
 
-                        <a href="#contact" class="btn btn-outline">
+                        <a href="#contact"
+                            class="btn btn-outline">
                             Contact Me
                         </a>
 
                     </div>
+
 
                     <div class="socials">
 
@@ -1936,9 +1280,11 @@ give me only code
                         <img
                             src="profile.jpg"
                             alt="Vansh Patel"
-                            class="profile-photo">
+                            class="profile-photo"
+                        >
 
                     </div>
+
 
                     <div class="floating-card">
 
@@ -1981,7 +1327,9 @@ give me only code
 
             </div>
 
+
             <div class="about-grid">
+
 
                 <div class="about-box reveal">
 
@@ -2008,23 +1356,46 @@ give me only code
                     <div class="about-info">
 
                         <div class="info-item">
+
                             <small>Name</small>
-                            <strong>Vansh Patel</strong>
+
+                            <strong>
+                                Vansh Patel
+                            </strong>
+
                         </div>
 
+
                         <div class="info-item">
+
                             <small>Field</small>
-                            <strong>IT / Software</strong>
+
+                            <strong>
+                                IT / Software
+                            </strong>
+
                         </div>
 
+
                         <div class="info-item">
+
                             <small>Focus</small>
-                            <strong>Development & Analytics</strong>
+
+                            <strong>
+                                Development & Analytics
+                            </strong>
+
                         </div>
 
+
                         <div class="info-item">
+
                             <small>Goal</small>
-                            <strong>Data Analyst</strong>
+
+                            <strong>
+                                Data Analyst
+                            </strong>
+
                         </div>
 
                     </div>
@@ -2062,6 +1433,7 @@ give me only code
 
             <div class="skills-grid">
 
+
                 <div class="reveal">
 
                     <div class="skill">
@@ -2072,9 +1444,11 @@ give me only code
                         </div>
 
                         <div class="skill-bar">
+
                             <div class="skill-progress"
                                 data-width="85%">
                             </div>
+
                         </div>
 
                     </div>
@@ -2088,9 +1462,11 @@ give me only code
                         </div>
 
                         <div class="skill-bar">
+
                             <div class="skill-progress"
                                 data-width="82%">
                             </div>
+
                         </div>
 
                     </div>
@@ -2104,9 +1480,11 @@ give me only code
                         </div>
 
                         <div class="skill-bar">
+
                             <div class="skill-progress"
                                 data-width="88%">
                             </div>
+
                         </div>
 
                     </div>
@@ -2120,9 +1498,11 @@ give me only code
                         </div>
 
                         <div class="skill-bar">
+
                             <div class="skill-progress"
                                 data-width="75%">
                             </div>
+
                         </div>
 
                     </div>
@@ -2157,197 +1537,6 @@ give me only code
                     </div>
 
                 </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         LANGUAGES
-    ========================= -->
-
-    <section class="section" id="languages">
-
-        <div class="container">
-
-            <div class="section-title reveal">
-
-                <span>Languages</span>
-
-                <h2>Language Proficiency</h2>
-
-                <p>
-                    My communication skills across different languages.
-                </p>
-
-            </div>
-
-
-            <div class="languages-grid">
-
-
-                <!-- ENGLISH -->
-
-                <div class="language-card reveal">
-
-                    <div class="language-header">
-
-                        <div class="language-name">
-
-                            <div class="language-icon">
-                                EN
-                            </div>
-
-                            <h3>
-                                English
-                            </h3>
-
-                        </div>
-
-                        <span class="language-percent">
-                            60%
-                        </span>
-
-                    </div>
-
-                    <div class="language-level">
-                        Pre-Intermediate (A2)
-                    </div>
-
-                    <div class="language-bar">
-
-                        <div
-                            class="language-progress"
-                            data-width="60%">
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- HINDI -->
-
-                <div class="language-card reveal">
-
-                    <div class="language-header">
-
-                        <div class="language-name">
-
-                            <div class="language-icon">
-                                HI
-                            </div>
-
-                            <h3>
-                                Hindi
-                            </h3>
-
-                        </div>
-
-                        <span class="language-percent">
-                            70%
-                        </span>
-
-                    </div>
-
-                    <div class="language-level">
-                        Intermediate (B1)
-                    </div>
-
-                    <div class="language-bar">
-
-                        <div
-                            class="language-progress"
-                            data-width="70%">
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- GUJARATI -->
-
-                <div class="language-card reveal">
-
-                    <div class="language-header">
-
-                        <div class="language-name">
-
-                            <div class="language-icon">
-                                GU
-                            </div>
-
-                            <h3>
-                                Gujarati
-                            </h3>
-
-                        </div>
-
-                        <span class="language-percent">
-                            95%
-                        </span>
-
-                    </div>
-
-                    <div class="language-level">
-                        Native Language
-                    </div>
-
-                    <div class="language-bar">
-
-                        <div
-                            class="language-progress"
-                            data-width="95%">
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- MARATHI -->
-
-                <div class="language-card reveal">
-
-                    <div class="language-header">
-
-                        <div class="language-name">
-
-                            <div class="language-icon">
-                                MR
-                            </div>
-
-                            <h3>
-                                Marathi
-                            </h3>
-
-                        </div>
-
-                        <span class="language-percent">
-                            60%
-                        </span>
-
-                    </div>
-
-                    <div class="language-level">
-                        Pre-Intermediate (A2)
-                    </div>
-
-                    <div class="language-bar">
-
-                        <div
-                            class="language-progress"
-                            data-width="60%">
-                        </div>
-
-                    </div>
-
-                </div>
-
 
             </div>
 
@@ -2400,9 +1589,11 @@ give me only code
                     </p>
 
                     <div class="project-tech">
+
                         <span>Python</span>
                         <span>Machine Learning</span>
                         <span>SQLite</span>
+
                     </div>
 
                     <button
@@ -2433,10 +1624,12 @@ give me only code
                     </p>
 
                     <div class="project-tech">
+
                         <span>Python</span>
                         <span>Flask</span>
                         <span>AI</span>
                         <span>HTML</span>
+
                     </div>
 
                     <button
@@ -2467,10 +1660,12 @@ give me only code
                     </p>
 
                     <div class="project-tech">
+
                         <span>Python</span>
                         <span>Pandas</span>
                         <span>NumPy</span>
                         <span>Matplotlib</span>
+
                     </div>
 
                     <button
@@ -2501,10 +1696,12 @@ give me only code
                     </p>
 
                     <div class="project-tech">
+
                         <span>PHP</span>
                         <span>MySQL</span>
                         <span>HTML</span>
                         <span>CSS</span>
+
                     </div>
 
                     <button
@@ -2514,7 +1711,6 @@ give me only code
                     </button>
 
                 </div>
-
 
             </div>
 
@@ -2609,7 +1805,6 @@ give me only code
 
             <div class="timeline">
 
-
                 <div class="timeline-item reveal">
 
                     <small>
@@ -2617,15 +1812,15 @@ give me only code
                     </small>
 
                     <h3>
-                        B.Sc. Information Technology
-                        (Software & Mobile Application)
+                        B.Sc.nformation Technology (Software & Mobile Application)
                     </h3>
 
                     <p>
-                        Currently pursuing B.Sc. IT,
-                        building a strong foundation in programming,
-                        software development, databases,
+                        Currently pursuing B.Sc. IT, 
+                        building a strong foundation in programming, 
+                        software development, databases, 
                         web technologies and mobile application development.
+                        
                     </p>
 
                 </div>
@@ -2638,16 +1833,12 @@ give me only code
                     </small>
 
                     <h3>
-                        Software Development Foundation
-                        with a Focus on Data Analytics
+                        I am a B.Sc. IT student with a software-development foundation, but I am specializing toward Data Analytics
                     </h3>
 
                     <p>
-                        Working with Analytics:
-                        Python • Pandas • NumPy • Excel • SQL • Power BI • Data Visualization
-                        <br><br>
-                        Development:
-                        Java • PHP • JavaScript • HTML • CSS • Dart • MySQL
+                        Working with Analytics: Python • Pandas • NumPy • Excel • SQL • Power BI • Data Visualization
+                        Development: Java  • PHP • JavaScript • HTML • CSS • Dart • MySQL 
                     </p>
 
                 </div>
@@ -2665,15 +1856,13 @@ give me only code
 
                     <p>
                         Developing knowledge in Python,
-                        data analysis, visualization, Excel, SQL,
-                        data cleaning and Power BI.
-                        Planning to expand my skills into machine learning,
-                        predictive analytics and AI after building
-                        a strong foundation in Data Analytics.
+                        data analysis, visualization,Excel, SQL,
+                        data cleaning, Power BI, 
+                        Planning to expand my skills into machine learning, 
+                        predictive analytics and AI after building a strong foundation in Data Analytics.
                     </p>
 
                 </div>
-
 
             </div>
 
@@ -2709,8 +1898,7 @@ give me only code
 
                 <!-- EMAIL -->
 
-                <a
-                    href="mailto:patelvansh23042004@gmail.com"
+                <a href="mailto:patelvansh23042004@gmail.com"
                     class="contact-card reveal">
 
                     <div class="contact-icon">
@@ -2730,8 +1918,7 @@ give me only code
 
                 <!-- GITHUB -->
 
-                <a
-                    href="https://github.com/vanshpatel2323"
+                <a href="https://github.com/vanshpatel2323"
                     target="_blank"
                     class="contact-card reveal">
 
@@ -2752,8 +1939,7 @@ give me only code
 
                 <!-- LINKEDIN -->
 
-                <a
-                    href="https://www.linkedin.com/"
+                <a href="https://www.linkedin.com/"
                     target="_blank"
                     class="contact-card reveal">
 
@@ -2770,7 +1956,6 @@ give me only code
                     </p>
 
                 </a>
-
 
             </div>
 
@@ -2935,7 +2120,7 @@ give me only code
             ) {
 
                 document
-                    .querySelectorAll("#skills .skill-progress")
+                    .querySelectorAll(".skill-progress")
                     .forEach(function (bar) {
 
                         bar.style.width =
@@ -2955,51 +2140,6 @@ give me only code
         );
 
         animateSkills();
-
-
-        /* =========================
-           LANGUAGE ANIMATION
-        ========================= */
-
-        let languagesAnimated = false;
-
-        function animateLanguages() {
-
-            const languagesSection =
-                document.getElementById("languages");
-
-            if (!languagesSection) return;
-
-            const position =
-                languagesSection.getBoundingClientRect().top;
-
-            if (
-                position <
-                window.innerHeight - 100 &&
-                !languagesAnimated
-            ) {
-
-                document
-                    .querySelectorAll("#languages .language-progress")
-                    .forEach(function (bar) {
-
-                        bar.style.width =
-                            bar.dataset.width;
-
-                    });
-
-                languagesAnimated = true;
-
-            }
-
-        }
-
-        window.addEventListener(
-            "scroll",
-            animateLanguages
-        );
-
-        animateLanguages();
 
 
         /* =========================
@@ -3034,17 +2174,11 @@ give me only code
                 ],
 
                 technologies: [
-
                     "Python",
-
                     "Machine Learning",
-
                     "SQLite",
-
                     "Pandas",
-
                     "Scikit-learn"
-
                 ]
 
             },
@@ -3076,19 +2210,12 @@ give me only code
                 ],
 
                 technologies: [
-
                     "Python",
-
                     "Flask",
-
                     "AI",
-
                     "HTML",
-
                     "CSS",
-
                     "JavaScript"
-
                 ]
 
             },
@@ -3120,17 +2247,11 @@ give me only code
                 ],
 
                 technologies: [
-
                     "Python",
-
                     "Pandas",
-
                     "NumPy",
-
                     "Matplotlib",
-
                     "Data Analytics"
-
                 ]
 
             },
@@ -3162,17 +2283,11 @@ give me only code
                 ],
 
                 technologies: [
-
                     "PHP",
-
                     "MySQL",
-
                     "HTML",
-
                     "CSS",
-
                     "XAMPP"
-
                 ]
 
             }
@@ -3265,34 +2380,28 @@ give me only code
 
         /* Close modal when clicking outside */
 
-        projectModal.addEventListener(
-            "click",
-            function (event) {
+        projectModal.addEventListener("click", function (event) {
 
-                if (event.target === projectModal) {
+            if (event.target === projectModal) {
 
-                    closeProject();
-
-                }
+                closeProject();
 
             }
-        );
+
+        });
 
 
         /* Close modal with Escape key */
 
-        document.addEventListener(
-            "keydown",
-            function (event) {
+        document.addEventListener("keydown", function (event) {
 
-                if (event.key === "Escape") {
+            if (event.key === "Escape") {
 
-                    closeProject();
-
-                }
+                closeProject();
 
             }
-        );
+
+        });
 
 
         /* =========================
@@ -3317,20 +2426,17 @@ give me only code
         });
 
 
-        topBtn.addEventListener(
-            "click",
-            function () {
+        topBtn.addEventListener("click", function () {
 
-                window.scrollTo({
+            window.scrollTo({
 
-                    top: 0,
+                top: 0,
 
-                    behavior: "smooth"
+                behavior: "smooth"
 
-                });
+            });
 
-            }
-        );
+        });
 
 
         /* =========================
@@ -3380,2503 +2486,8 @@ give me only code
 
         });
 
-
     </script>
 
 </body>
 
 </html>
-
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Vansh Patel | Software & Mobile Application Developer & Data Analyst</title>
-
-<meta name="description"
-    content="Vansh Patel - Software & Mobile Application Developer and Data Analyst Portfolio">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
-    rel="stylesheet">
-
-<style>
-
-    /* =========================
-       GLOBAL
-    ========================= */
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        scroll-behavior: smooth;
-    }
-
-    :root {
-        --primary: #173b63;
-        --primary-light: #2d6094;
-        --accent: #c89b3c;
-        --text: #17202a;
-        --muted: #687586;
-        --background: #f7f9fc;
-        --white: #ffffff;
-        --border: #e5eaf0;
-        --shadow: 0 15px 45px rgba(23, 59, 99, 0.09);
-    }
-
-    body {
-        font-family: "Inter", sans-serif;
-        color: var(--text);
-        background: var(--white);
-        line-height: 1.6;
-        overflow-x: hidden;
-    }
-
-    body.modal-open {
-        overflow: hidden;
-    }
-
-    a {
-        text-decoration: none;
-        color: inherit;
-    }
-
-    button {
-        font-family: inherit;
-    }
-
-    .container {
-        width: min(1120px, 90%);
-        margin: auto;
-    }
-
-    .section {
-        padding: 100px 0;
-    }
-
-    .section-title {
-        text-align: center;
-        margin-bottom: 55px;
-    }
-
-    .section-title span {
-        display: inline-block;
-        color: var(--accent);
-        font-size: 13px;
-        font-weight: 700;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        margin-bottom: 10px;
-    }
-
-    .section-title h2 {
-        font-family: "Playfair Display", serif;
-        font-size: 42px;
-        color: var(--primary);
-    }
-
-    .section-title p {
-        max-width: 650px;
-        margin: 12px auto 0;
-        color: var(--muted);
-    }
-
-
-    /* =========================
-       LOADER
-    ========================= */
-
-    #loader {
-        position: fixed;
-        inset: 0;
-        background: var(--white);
-        z-index: 9999;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: opacity .5s ease, visibility .5s ease;
-    }
-
-    #loader.hide {
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    .loader-circle {
-        width: 45px;
-        height: 45px;
-        border: 3px solid #e5eaf0;
-        border-top-color: var(--primary);
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-        to {
-            transform: rotate(360deg);
-        }
-    }
-
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    header {
-        position: fixed;
-        width: 100%;
-        top: 0;
-        left: 0;
-        z-index: 1000;
-        background: rgba(255, 255, 255, .94);
-        backdrop-filter: blur(12px);
-        border-bottom: 1px solid transparent;
-        transition: .3s ease;
-    }
-
-    header.scrolled {
-        border-bottom: 1px solid var(--border);
-        box-shadow: 0 5px 25px rgba(0, 0, 0, .04);
-    }
-
-    nav {
-        height: 76px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    /* Professional VP logo */
-
-    .logo {
-        width: 42px;
-        height: 42px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 2px solid var(--primary);
-        color: var(--primary);
-        font-family: "Playfair Display", serif;
-        font-size: 17px;
-        font-weight: 700;
-        letter-spacing: 1px;
-        transition: .3s ease;
-    }
-
-    .logo:hover {
-        background: var(--primary);
-        color: white;
-        transform: translateY(-2px);
-    }
-
-    .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 30px;
-        list-style: none;
-    }
-
-    .nav-links a {
-        font-size: 14px;
-        font-weight: 600;
-        color: #4b5867;
-        transition: .25s;
-        position: relative;
-    }
-
-    .nav-links a::after {
-        content: "";
-        position: absolute;
-        width: 0;
-        height: 2px;
-        background: var(--accent);
-        bottom: -7px;
-        left: 50%;
-        transform: translateX(-50%);
-        transition: .3s;
-    }
-
-    .nav-links a:hover {
-        color: var(--primary);
-    }
-
-    .nav-links a:hover::after {
-        width: 100%;
-    }
-
-    .nav-btn {
-        padding: 11px 20px;
-        border: 1px solid var(--primary);
-        border-radius: 5px;
-        color: var(--primary) !important;
-    }
-
-    .nav-btn:hover {
-        background: var(--primary);
-        color: white !important;
-    }
-
-    .nav-btn::after {
-        display: none;
-    }
-
-    .menu-btn {
-        display: none;
-        font-size: 27px;
-        cursor: pointer;
-        color: var(--primary);
-    }
-
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        background:
-            linear-gradient(
-                rgba(247, 249, 252, .96),
-                rgba(255, 255, 255, .99)
-            ),
-            radial-gradient(
-                circle at 80% 30%,
-                #dce8f5,
-                transparent 35%
-            );
-        padding-top: 76px;
-    }
-
-    .hero-grid {
-        display: grid;
-        grid-template-columns: 1.15fr .85fr;
-        align-items: center;
-        gap: 70px;
-    }
-
-    .hero-content {
-        animation: slideLeft .9s ease forwards;
-    }
-
-    @keyframes slideLeft {
-        from {
-            opacity: 0;
-            transform: translateX(-35px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    }
-
-    .eyebrow {
-        color: var(--accent);
-        font-size: 14px;
-        font-weight: 700;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        margin-bottom: 18px;
-    }
-
-    .hero h1 {
-        font-family: "Playfair Display", serif;
-        color: var(--primary);
-        font-size: clamp(48px, 6vw, 72px);
-        line-height: 1.08;
-        margin-bottom: 20px;
-    }
-
-    .hero h1 span {
-        color: var(--accent);
-    }
-
-    .hero h3 {
-        font-size: 22px;
-        font-weight: 600;
-        color: #3f4c5b;
-        margin-bottom: 18px;
-    }
-
-    .hero p {
-        max-width: 620px;
-        color: var(--muted);
-        font-size: 16px;
-        margin-bottom: 30px;
-    }
-
-    .hero-buttons {
-        display: flex;
-        gap: 15px;
-        flex-wrap: wrap;
-    }
-
-    .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        padding: 13px 24px;
-        border-radius: 5px;
-        font-size: 14px;
-        font-weight: 700;
-        transition: .3s ease;
-        cursor: pointer;
-    }
-
-    .btn-primary {
-        background: var(--primary);
-        color: white;
-        border: 1px solid var(--primary);
-    }
-
-    .btn-primary:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 25px rgba(23, 59, 99, .22);
-        background: #102e4d;
-    }
-
-    .btn-outline {
-        border: 1px solid #ccd5df;
-        color: var(--primary);
-        background: white;
-    }
-
-    .btn-outline:hover {
-        border-color: var(--primary);
-        transform: translateY(-3px);
-    }
-
-    .socials {
-        display: flex;
-        gap: 12px;
-        margin-top: 28px;
-    }
-
-    .socials a {
-        width: 39px;
-        height: 39px;
-        border: 1px solid var(--border);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        font-size: 13px;
-        font-weight: 700;
-        color: var(--primary);
-        background: white;
-        transition: .3s;
-    }
-
-    .socials a:hover {
-        transform: translateY(-4px);
-        background: var(--primary);
-        color: white;
-    }
-
-
-    /* =========================
-       PROFILE PHOTO
-    ========================= */
-
-    .hero-image {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        animation: slideRight 1s ease forwards;
-    }
-
-    @keyframes slideRight {
-        from {
-            opacity: 0;
-            transform: translateX(35px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    }
-
-    .image-frame {
-        width: 350px;
-        height: 420px;
-        background: white;
-        border: 1px solid var(--border);
-        padding: 12px;
-        box-shadow: var(--shadow);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .image-frame::before {
-        content: "";
-        position: absolute;
-        width: 100px;
-        height: 100px;
-        border-top: 4px solid var(--accent);
-        border-left: 4px solid var(--accent);
-        top: -14px;
-        left: -14px;
-        z-index: 3;
-    }
-
-    .image-frame::after {
-        content: "";
-        position: absolute;
-        width: 100px;
-        height: 100px;
-        border-bottom: 4px solid var(--accent);
-        border-right: 4px solid var(--accent);
-        bottom: -14px;
-        right: -14px;
-        z-index: 3;
-    }
-
-    .profile-photo {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        transition: transform .6s ease;
-    }
-
-    .image-frame:hover .profile-photo {
-        transform: scale(1.04);
-    }
-
-    .floating-card {
-        position: absolute;
-        bottom: 25px;
-        left: -25px;
-        background: white;
-        padding: 15px 20px;
-        box-shadow: var(--shadow);
-        border-left: 3px solid var(--accent);
-        z-index: 5;
-    }
-
-    .floating-card strong {
-        display: block;
-        color: var(--primary);
-        font-size: 20px;
-    }
-
-    .floating-card small {
-        color: var(--muted);
-    }
-
-
-    /* =========================
-       ABOUT
-    ========================= */
-
-    .about {
-        background: var(--background);
-    }
-
-    .about-grid {
-        display: grid;
-        grid-template-columns: .9fr 1.1fr;
-        gap: 70px;
-        align-items: center;
-    }
-
-    .about-box {
-        background: white;
-        border: 1px solid var(--border);
-        padding: 35px;
-        box-shadow: var(--shadow);
-        position: relative;
-        transition: .35s ease;
-    }
-
-    .about-box:hover {
-        transform: translateY(-5px);
-    }
-
-    .about-box h3 {
-        color: var(--primary);
-        font-family: "Playfair Display", serif;
-        font-size: 28px;
-        margin-bottom: 15px;
-    }
-
-    .about-box p {
-        color: var(--muted);
-        margin-bottom: 15px;
-    }
-
-    .about-info {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
-        margin-top: 25px;
-    }
-
-    .info-item {
-        padding: 17px;
-        border: 1px solid var(--border);
-        background: #fbfcfe;
-        transition: .3s ease;
-    }
-
-    .info-item:hover {
-        border-color: var(--accent);
-        transform: translateY(-3px);
-    }
-
-    .info-item small {
-        color: var(--muted);
-        display: block;
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    .info-item strong {
-        color: var(--primary);
-        font-size: 14px;
-    }
-
-
-    /* =========================
-       SKILLS
-    ========================= */
-
-    .skills-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 60px;
-    }
-
-    .skill {
-        margin-bottom: 25px;
-    }
-
-    .skill-header {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 8px;
-        font-size: 14px;
-        font-weight: 600;
-    }
-
-    .skill-header span:last-child {
-        color: var(--muted);
-    }
-
-    .skill-bar {
-        width: 100%;
-        height: 7px;
-        background: #e9edf2;
-        overflow: hidden;
-        border-radius: 10px;
-    }
-
-    .skill-progress {
-        height: 100%;
-        width: 0;
-        background: var(--primary);
-        border-radius: 10px;
-        transition: width 1.5s ease;
-    }
-
-    .skill-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    .tag {
-        padding: 9px 15px;
-        border: 1px solid var(--border);
-        color: var(--primary);
-        background: white;
-        font-size: 13px;
-        font-weight: 600;
-        transition: .25s;
-    }
-
-    .tag:hover {
-        border-color: var(--accent);
-        transform: translateY(-3px);
-    }
-
-
-    /* =========================
-       PROJECTS
-    ========================= */
-
-    .projects {
-        background: var(--background);
-    }
-
-    .project-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
-    }
-
-    .project-card {
-        background: white;
-        border: 1px solid var(--border);
-        padding: 30px;
-        transition: .35s ease;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .project-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 3px;
-        background: var(--accent);
-        transition: .4s;
-    }
-
-    .project-card:hover {
-        transform: translateY(-8px);
-        box-shadow: var(--shadow);
-    }
-
-    .project-card:hover::before {
-        width: 100%;
-    }
-
-    .project-number {
-        color: var(--accent);
-        font-size: 13px;
-        font-weight: 700;
-        letter-spacing: 1px;
-        margin-bottom: 20px;
-    }
-
-    .project-card h3 {
-        font-family: "Playfair Display", serif;
-        color: var(--primary);
-        font-size: 25px;
-        margin-bottom: 12px;
-    }
-
-    .project-card p {
-        color: var(--muted);
-        font-size: 14px;
-        margin-bottom: 20px;
-    }
-
-    .project-tech {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-    }
-
-    .project-tech span {
-        padding: 5px 9px;
-        background: #f1f5f9;
-        color: #516174;
-        font-size: 11px;
-        font-weight: 600;
-    }
-
-    .project-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        margin-top: 22px;
-        color: var(--primary);
-        background: white;
-        border: 1px solid #ccd5df;
-        padding: 10px 16px;
-        font-size: 13px;
-        font-weight: 700;
-        cursor: pointer;
-        transition: .3s;
-    }
-
-    .project-link:hover {
-        background: var(--primary);
-        border-color: var(--primary);
-        color: white;
-        transform: translateY(-2px);
-    }
-
-
-    /* =========================
-       PROJECT MODAL
-    ========================= */
-
-    .project-modal {
-        position: fixed;
-        inset: 0;
-        background: rgba(15, 31, 48, .72);
-        backdrop-filter: blur(6px);
-        z-index: 5000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 25px;
-        opacity: 0;
-        visibility: hidden;
-        transition: .3s ease;
-    }
-
-    .project-modal.active {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .modal-content {
-        width: min(700px, 100%);
-        max-height: 90vh;
-        overflow-y: auto;
-        background: white;
-        padding: 40px;
-        position: relative;
-        border-top: 4px solid var(--accent);
-        box-shadow: 0 25px 80px rgba(0, 0, 0, .2);
-        transform: translateY(25px) scale(.98);
-        transition: .3s ease;
-    }
-
-    .project-modal.active .modal-content {
-        transform: translateY(0) scale(1);
-    }
-
-    .modal-close {
-        position: absolute;
-        top: 15px;
-        right: 18px;
-        width: 38px;
-        height: 38px;
-        border: 1px solid var(--border);
-        background: white;
-        color: var(--primary);
-        font-size: 23px;
-        line-height: 1;
-        cursor: pointer;
-        transition: .25s;
-    }
-
-    .modal-close:hover {
-        background: var(--primary);
-        color: white;
-    }
-
-    .modal-number {
-        color: var(--accent);
-        font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        margin-bottom: 8px;
-    }
-
-    .modal-content h2 {
-        font-family: "Playfair Display", serif;
-        color: var(--primary);
-        font-size: 34px;
-        margin-bottom: 20px;
-        padding-right: 40px;
-    }
-
-    .modal-section {
-        margin-top: 25px;
-    }
-
-    .modal-section h4 {
-        color: var(--primary);
-        font-size: 15px;
-        margin-bottom: 10px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    .modal-section p {
-        color: var(--muted);
-        font-size: 14px;
-        line-height: 1.8;
-    }
-
-    .feature-list {
-        padding-left: 20px;
-        color: var(--muted);
-        font-size: 14px;
-    }
-
-    .feature-list li {
-        margin-bottom: 8px;
-    }
-
-    .modal-tech {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-
-    .modal-tech span {
-        padding: 7px 11px;
-        background: #f1f5f9;
-        color: var(--primary);
-        font-size: 12px;
-        font-weight: 600;
-        border: 1px solid var(--border);
-    }
-
-
-    /* =========================
-       JOURNEY
-    ========================= */
-
-    .timeline {
-        max-width: 850px;
-        margin: auto;
-        border-left: 2px solid var(--border);
-        padding-left: 35px;
-    }
-
-    .timeline-item {
-        position: relative;
-        margin-bottom: 40px;
-        transition: .3s ease;
-    }
-
-    .timeline-item:hover {
-        transform: translateX(5px);
-    }
-
-    .timeline-item::before {
-        content: "";
-        position: absolute;
-        width: 11px;
-        height: 11px;
-        background: var(--accent);
-        border-radius: 50%;
-        left: -42px;
-        top: 5px;
-        border: 3px solid white;
-        box-shadow: 0 0 0 1px var(--accent);
-    }
-
-    .timeline-item small {
-        color: var(--accent);
-        font-weight: 700;
-    }
-
-    .timeline-item h3 {
-        color: var(--primary);
-        font-size: 20px;
-        margin: 5px 0;
-    }
-
-    .timeline-item p {
-        color: var(--muted);
-        font-size: 14px;
-    }
-
-
-    /* =========================
-       CONTACT
-    ========================= */
-
-    .contact {
-        background: var(--primary);
-        color: white;
-    }
-
-    .contact .section-title h2 {
-        color: white;
-    }
-
-    .contact .section-title p {
-        color: #c5d1df;
-    }
-
-    .contact-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-    }
-
-    .contact-card {
-        text-align: center;
-        border: 1px solid rgba(255, 255, 255, .15);
-        padding: 30px 20px;
-        transition: .3s;
-    }
-
-    .contact-card:hover {
-        transform: translateY(-6px);
-        background: rgba(255, 255, 255, .05);
-    }
-
-    .contact-icon {
-        font-size: 27px;
-        margin-bottom: 12px;
-    }
-
-    .contact-card h3 {
-        font-size: 16px;
-        margin-bottom: 7px;
-    }
-
-    .contact-card p {
-        color: #c5d1df;
-        font-size: 13px;
-        word-break: break-word;
-    }
-
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-        background: #102b47;
-        color: #b7c5d4;
-        padding: 25px 0;
-        text-align: center;
-        font-size: 13px;
-    }
-
-    footer span {
-        color: var(--accent);
-    }
-
-
-    /* =========================
-       SCROLL ANIMATION
-    ========================= */
-
-    .reveal {
-        opacity: 0;
-        transform: translateY(30px);
-        transition:
-            opacity .8s ease,
-            transform .8s ease;
-    }
-
-    .reveal.active {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-
-    /* =========================
-       BACK TO TOP
-    ========================= */
-
-    #topBtn {
-        position: fixed;
-        right: 25px;
-        bottom: 25px;
-        width: 45px;
-        height: 45px;
-        border: none;
-        background: var(--primary);
-        color: white;
-        cursor: pointer;
-        opacity: 0;
-        visibility: hidden;
-        transition: .3s;
-        z-index: 999;
-    }
-
-    #topBtn.show {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    #topBtn:hover {
-        background: var(--accent);
-    }
-
-
-    /* =========================
-       RESPONSIVE
-    ========================= */
-
-    @media (max-width: 850px) {
-
-        .nav-links {
-            position: absolute;
-            top: 76px;
-            left: 0;
-            width: 100%;
-            background: white;
-            flex-direction: column;
-            padding: 25px;
-            gap: 22px;
-            border-bottom: 1px solid var(--border);
-            display: none;
-        }
-
-        .nav-links.active {
-            display: flex;
-        }
-
-        .menu-btn {
-            display: block;
-        }
-
-        .hero-grid,
-        .about-grid,
-        .skills-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .hero {
-            padding-top: 120px;
-            padding-bottom: 80px;
-        }
-
-        .hero-content {
-            text-align: center;
-        }
-
-        .hero p {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-buttons,
-        .socials {
-            justify-content: center;
-        }
-
-        .hero-image {
-            margin-top: 30px;
-        }
-
-        .project-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .contact-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .section {
-            padding: 75px 0;
-        }
-
-        .section-title h2 {
-            font-size: 35px;
-        }
-
-        .modal-content {
-            padding: 30px 25px;
-        }
-    }
-
-
-    @media (max-width: 480px) {
-
-        .logo {
-            width: 39px;
-            height: 39px;
-        }
-
-        .image-frame {
-            width: 280px;
-            height: 350px;
-        }
-
-        .about-info {
-            grid-template-columns: 1fr;
-        }
-
-        .hero h1 {
-            font-size: 45px;
-        }
-
-        .floating-card {
-            left: 0;
-        }
-
-        .modal-content h2 {
-            font-size: 28px;
-        }
-    }
-
-</style>
-
-</head>
-
-<body>
-
-<!-- =========================
-     LOADER
-========================= -->
-
-<div id="loader">
-    <div class="loader-circle"></div>
-</div>
-
-
-<!-- =========================
-     HEADER
-========================= -->
-
-<header id="header">
-
-    <div class="container">
-
-        <nav>
-
-            <!-- VP PROFESSIONAL LOGO -->
-
-            <a href="#home" class="logo" title="Vansh Patel">
-                VP
-            </a>
-
-
-            <ul class="nav-links" id="navLinks">
-
-                <li>
-                    <a href="#home">Home</a>
-                </li>
-
-                <li>
-                    <a href="#about">About</a>
-                </li>
-
-                <li>
-                    <a href="#skills">Skills</a>
-                </li>
-
-                <li>
-                    <a href="#projects">Projects</a>
-                </li>
-
-                <li>
-                    <a href="#experience">Journey</a>
-                </li>
-
-                <li>
-                    <a href="#contact">Contact</a>
-                </li>
-
-                <li>
-                    <a href="#contact" class="nav-btn">
-                        Let's Talk
-                    </a>
-                </li>
-
-            </ul>
-
-
-            <div class="menu-btn" id="menuBtn">
-                ☰
-            </div>
-
-        </nav>
-
-    </div>
-
-</header>
-
-
-<!-- =========================
-     HERO
-========================= -->
-
-<section class="hero" id="home">
-
-    <div class="container">
-
-        <div class="hero-grid">
-
-
-            <div class="hero-content">
-
-                <div class="eyebrow">
-                    Software & Mobile Application Developer · Data Analyst
-                </div>
-
-                <h1>
-                    Hi, I'm <span>Vansh Patel</span>
-                </h1>
-
-                <h3>
-                    Building intelligent solutions with code & data.
-                </h3>
-
-                <p>
-                    I am an IT student and aspiring Software Developer
-                    & Data Analyst passionate about creating useful,
-                    reliable and professional digital solutions.
-                </p>
-
-
-                <div class="hero-buttons">
-
-                    <a href="#projects"
-                        class="btn btn-primary">
-                        View My Work →
-                    </a>
-
-                    <a href="#contact"
-                        class="btn btn-outline">
-                        Contact Me
-                    </a>
-
-                </div>
-
-
-                <div class="socials">
-
-                    <a href="https://github.com/vanshpatel2323"
-                        target="_blank"
-                        title="GitHub">
-                        GH
-                    </a>
-
-                    <a href="https://www.linkedin.com/"
-                        target="_blank"
-                        title="LinkedIn">
-                        in
-                    </a>
-
-                    <a href="mailto:patelvansh23042004@gmail.com"
-                        title="Email">
-                        @
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- PROFILE PHOTO -->
-
-            <div class="hero-image">
-
-                <div class="image-frame">
-
-                    <img
-                        src="profile.jpg"
-                        alt="Vansh Patel"
-                        class="profile-photo"
-                    >
-
-                </div>
-
-
-                <div class="floating-card">
-
-                    <strong>IT Student</strong>
-
-                    <small>
-                        Software & Data
-                    </small>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     ABOUT
-========================= -->
-
-<section class="section about" id="about">
-
-    <div class="container">
-
-        <div class="section-title reveal">
-
-            <span>About Me</span>
-
-            <h2>A little about myself</h2>
-
-            <p>
-                My goal is to combine software development,
-                data analytics and artificial intelligence
-                to build meaningful technology.
-            </p>
-
-        </div>
-
-
-        <div class="about-grid">
-
-
-            <div class="about-box reveal">
-
-                <h3>
-                    Turning ideas into solutions.
-                </h3>
-
-                <p>
-                    I enjoy learning new technologies and
-                    transforming ideas into practical applications.
-                </p>
-
-                <p>
-                    My interests include software development,
-                    data analytics, artificial intelligence,
-                    databases and modern web technologies.
-                </p>
-
-            </div>
-
-
-            <div class="reveal">
-
-                <div class="about-info">
-
-                    <div class="info-item">
-
-                        <small>Name</small>
-
-                        <strong>
-                            Vansh Patel
-                        </strong>
-
-                    </div>
-
-
-                    <div class="info-item">
-
-                        <small>Field</small>
-
-                        <strong>
-                            IT / Software
-                        </strong>
-
-                    </div>
-
-
-                    <div class="info-item">
-
-                        <small>Focus</small>
-
-                        <strong>
-                            Development & Analytics
-                        </strong>
-
-                    </div>
-
-
-                    <div class="info-item">
-
-                        <small>Goal</small>
-
-                        <strong>
-                            Data Analyst
-                        </strong>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     SKILLS
-========================= -->
-
-<section class="section" id="skills">
-
-    <div class="container">
-
-        <div class="section-title reveal">
-
-            <span>My Skills</span>
-
-            <h2>Technologies I work with</h2>
-
-            <p>
-                A growing technical toolkit focused on
-                development, databases and data analytics.
-            </p>
-
-        </div>
-
-
-        <div class="skills-grid">
-
-
-            <div class="reveal">
-
-                <div class="skill">
-
-                    <div class="skill-header">
-                        <span>Python</span>
-                        <span>85%</span>
-                    </div>
-
-                    <div class="skill-bar">
-
-                        <div class="skill-progress"
-                            data-width="85%">
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="skill">
-
-                    <div class="skill-header">
-                        <span>SQL / MySQL</span>
-                        <span>82%</span>
-                    </div>
-
-                    <div class="skill-bar">
-
-                        <div class="skill-progress"
-                            data-width="82%">
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="skill">
-
-                    <div class="skill-header">
-                        <span>HTML / CSS</span>
-                        <span>88%</span>
-                    </div>
-
-                    <div class="skill-bar">
-
-                        <div class="skill-progress"
-                            data-width="88%">
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="skill">
-
-                    <div class="skill-header">
-                        <span>Excel</span>
-                        <span>75%</span>
-                    </div>
-
-                    <div class="skill-bar">
-
-                        <div class="skill-progress"
-                            data-width="75%">
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="reveal">
-
-                <h3 style="color:var(--primary); margin-bottom:20px;">
-                    Technical Stack
-                </h3>
-
-                <div class="skill-tags">
-
-                    <span class="tag">Python</span>
-                    <span class="tag">Java</span>
-                    <span class="tag">C++</span>
-                    <span class="tag">C#</span>
-                    <span class="tag">PHP</span>
-                    <span class="tag">Dart</span>
-                    <span class="tag">SQL</span>
-                    <span class="tag">HTML</span>
-                    <span class="tag">CSS</span>
-                    <span class="tag">JavaScript</span>
-                    <span class="tag">Git</span>
-                    <span class="tag">GitHub</span>
-                    <span class="tag">Power BI</span>
-                    <span class="tag">Excel</span>
-                    <span class="tag">Django</span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     PROJECTS
-========================= -->
-
-<section class="section projects" id="projects">
-
-    <div class="container">
-
-        <div class="section-title reveal">
-
-            <span>Selected Work</span>
-
-            <h2>Projects I'm proud of</h2>
-
-            <p>
-                A selection of projects demonstrating my
-                development, analytics and problem-solving skills.
-            </p>
-
-        </div>
-
-
-        <div class="project-grid">
-
-
-            <!-- PROJECT 1 -->
-
-            <div class="project-card reveal">
-
-                <div class="project-number">
-                    01 / PROJECT
-                </div>
-
-                <h3>
-                    Fraud Detection System
-                </h3>
-
-                <p>
-                    An AI-powered banking fraud detection
-                    system designed to identify suspicious
-                    financial transactions using machine learning.
-                </p>
-
-                <div class="project-tech">
-
-                    <span>Python</span>
-                    <span>Machine Learning</span>
-                    <span>SQLite</span>
-
-                </div>
-
-                <button
-                    class="project-link"
-                    onclick="openProject('fraud')">
-                    Project Details →
-                </button>
-
-            </div>
-
-
-            <!-- PROJECT 2 -->
-
-            <div class="project-card reveal">
-
-                <div class="project-number">
-                    02 / PROJECT
-                </div>
-
-                <h3>
-                    MediGPT
-                </h3>
-
-                <p>
-                    A medicine information assistant developed
-                    with a focus on providing useful information
-                    through an easy-to-use interface.
-                </p>
-
-                <div class="project-tech">
-
-                    <span>Python</span>
-                    <span>Flask</span>
-                    <span>AI</span>
-                    <span>HTML</span>
-
-                </div>
-
-                <button
-                    class="project-link"
-                    onclick="openProject('medigpt')">
-                    Project Details →
-                </button>
-
-            </div>
-
-
-            <!-- PROJECT 3 -->
-
-            <div class="project-card reveal">
-
-                <div class="project-number">
-                    03 / PROJECT
-                </div>
-
-                <h3>
-                    Cricket Analytics
-                </h3>
-
-                <p>
-                    A data analytics project focused on
-                    cleaning, exploring and understanding
-                    cricket performance data.
-                </p>
-
-                <div class="project-tech">
-
-                    <span>Python</span>
-                    <span>Pandas</span>
-                    <span>NumPy</span>
-                    <span>Matplotlib</span>
-
-                </div>
-
-                <button
-                    class="project-link"
-                    onclick="openProject('cricket')">
-                    Project Details →
-                </button>
-
-            </div>
-
-
-            <!-- PROJECT 4 -->
-
-            <div class="project-card reveal">
-
-                <div class="project-number">
-                    04 / PROJECT
-                </div>
-
-                <h3>
-                    Student Portal
-                </h3>
-
-                <p>
-                    A web-based student management portal
-                    with authentication, student records
-                    and database connectivity.
-                </p>
-
-                <div class="project-tech">
-
-                    <span>PHP</span>
-                    <span>MySQL</span>
-                    <span>HTML</span>
-                    <span>CSS</span>
-
-                </div>
-
-                <button
-                    class="project-link"
-                    onclick="openProject('student')">
-                    Project Details →
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     PROJECT DETAILS MODAL
-========================= -->
-
-<div class="project-modal" id="projectModal">
-
-    <div class="modal-content">
-
-        <button
-            class="modal-close"
-            onclick="closeProject()">
-            ×
-        </button>
-
-        <div class="modal-number" id="modalNumber">
-            PROJECT
-        </div>
-
-        <h2 id="modalTitle">
-            Project Title
-        </h2>
-
-
-        <div class="modal-section">
-
-            <h4>Overview</h4>
-
-            <p id="modalOverview">
-                Project overview.
-            </p>
-
-        </div>
-
-
-        <div class="modal-section">
-
-            <h4>Key Features</h4>
-
-            <ul
-                class="feature-list"
-                id="modalFeatures">
-            </ul>
-
-        </div>
-
-
-        <div class="modal-section">
-
-            <h4>Technologies Used</h4>
-
-            <div
-                class="modal-tech"
-                id="modalTech">
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- =========================
-     JOURNEY
-========================= -->
-
-<section class="section" id="experience">
-
-    <div class="container">
-
-        <div class="section-title reveal">
-
-            <span>My Journey</span>
-
-            <h2>Education & Growth</h2>
-
-            <p>
-                Continuously learning and developing my
-                technical skills.
-            </p>
-
-        </div>
-
-
-        <div class="timeline">
-
-            <div class="timeline-item reveal">
-
-                <small>
-                    PRESENT
-                </small>
-
-                <h3>
-                    B.Sc.nformation Technology (Software & Mobile Application)
-                </h3>
-
-                <p>
-                    Currently pursuing B.Sc. IT, 
-                    building a strong foundation in programming, 
-                    software development, databases, 
-                    web technologies and mobile application development.
-                    
-                </p>
-
-            </div>
-
-
-            <div class="timeline-item reveal">
-
-                <small>
-                    SKILLS
-                </small>
-
-                <h3>
-                    I am a B.Sc. IT student with a software-development foundation, but I am specializing toward Data Analytics
-                </h3>
-
-                <p>
-                    Working with Analytics: Python • Pandas • NumPy • Excel • SQL • Power BI • Data Visualization
-                    Development: Java  • PHP • JavaScript • HTML • CSS • Dart • MySQL 
-                </p>
-
-            </div>
-
-
-            <div class="timeline-item reveal">
-
-                <small>
-                    CURRENT FOCUS
-                </small>
-
-                <h3>
-                    Data Analytics & AI
-                </h3>
-
-                <p>
-                    Developing knowledge in Python,
-                    data analysis, visualization,Excel, SQL,
-                    data cleaning, Power BI, 
-                    Planning to expand my skills into machine learning, 
-                    predictive analytics and AI after building a strong foundation in Data Analytics.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     CONTACT
-========================= -->
-
-<section class="section contact" id="contact">
-
-    <div class="container">
-
-        <div class="section-title reveal">
-
-            <span>Get In Touch</span>
-
-            <h2>Let's build something together.</h2>
-
-            <p>
-                I'm always interested in learning,
-                collaborating and working on meaningful projects.
-            </p>
-
-        </div>
-
-
-        <div class="contact-grid">
-
-
-            <!-- EMAIL -->
-
-            <a href="mailto:patelvansh23042004@gmail.com"
-                class="contact-card reveal">
-
-                <div class="contact-icon">
-                    ✉
-                </div>
-
-                <h3>
-                    Email
-                </h3>
-
-                <p>
-                    patelvansh23042004@gmail.com
-                </p>
-
-            </a>
-
-
-            <!-- GITHUB -->
-
-            <a href="https://github.com/vanshpatel2323"
-                target="_blank"
-                class="contact-card reveal">
-
-                <div class="contact-icon">
-                    ◉
-                </div>
-
-                <h3>
-                    GitHub
-                </h3>
-
-                <p>
-                    github.com/vanshpatel2323
-                </p>
-
-            </a>
-
-
-            <!-- LINKEDIN -->
-
-            <a href="https://www.linkedin.com/"
-                target="_blank"
-                class="contact-card reveal">
-
-                <div class="contact-icon">
-                    in
-                </div>
-
-                <h3>
-                    LinkedIn
-                </h3>
-
-                <p>
-                    Connect with me professionally
-                </p>
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-    <div class="container">
-
-        © 2026 Vansh Patel.
-        Designed & Built with
-        <span>♥</span> and code.
-
-    </div>
-
-</footer>
-
-
-<!-- BACK TO TOP -->
-
-<button id="topBtn">
-    ↑
-</button>
-
-
-<!-- =========================
-     JAVASCRIPT
-========================= -->
-
-<script>
-
-
-    /* =========================
-       LOADER
-    ========================= */
-
-    window.addEventListener("load", function () {
-
-        setTimeout(function () {
-
-            document
-                .getElementById("loader")
-                .classList.add("hide");
-
-        }, 500);
-
-    });
-
-
-    /* =========================
-       MOBILE MENU
-    ========================= */
-
-    const menuBtn =
-        document.getElementById("menuBtn");
-
-    const navLinks =
-        document.getElementById("navLinks");
-
-    menuBtn.addEventListener("click", function () {
-
-        navLinks.classList.toggle("active");
-
-    });
-
-
-    document
-        .querySelectorAll(".nav-links a")
-        .forEach(function (link) {
-
-            link.addEventListener("click", function () {
-
-                navLinks.classList.remove("active");
-
-            });
-
-        });
-
-
-    /* =========================
-       HEADER SCROLL
-    ========================= */
-
-    const header =
-        document.getElementById("header");
-
-    window.addEventListener("scroll", function () {
-
-        if (window.scrollY > 50) {
-
-            header.classList.add("scrolled");
-
-        } else {
-
-            header.classList.remove("scrolled");
-
-        }
-
-    });
-
-
-    /* =========================
-       SCROLL REVEAL
-    ========================= */
-
-    const reveals =
-        document.querySelectorAll(".reveal");
-
-    function revealOnScroll() {
-
-        reveals.forEach(function (element) {
-
-            const windowHeight =
-                window.innerHeight;
-
-            const elementTop =
-                element.getBoundingClientRect().top;
-
-            if (elementTop < windowHeight - 80) {
-
-                element.classList.add("active");
-
-            }
-
-        });
-
-    }
-
-    window.addEventListener(
-        "scroll",
-        revealOnScroll
-    );
-
-    revealOnScroll();
-
-
-    /* =========================
-       SKILL ANIMATION
-    ========================= */
-
-    let skillsAnimated = false;
-
-    function animateSkills() {
-
-        const skillsSection =
-            document.getElementById("skills");
-
-        const position =
-            skillsSection.getBoundingClientRect().top;
-
-        if (
-            position <
-            window.innerHeight - 100 &&
-            !skillsAnimated
-        ) {
-
-            document
-                .querySelectorAll(".skill-progress")
-                .forEach(function (bar) {
-
-                    bar.style.width =
-                        bar.dataset.width;
-
-                });
-
-            skillsAnimated = true;
-
-        }
-
-    }
-
-    window.addEventListener(
-        "scroll",
-        animateSkills
-    );
-
-    animateSkills();
-
-
-    /* =========================
-       PROJECT DETAILS
-    ========================= */
-
-    const projectData = {
-
-        fraud: {
-
-            number: "01 / PROJECT",
-
-            title: "Fraud Detection System",
-
-            overview:
-                "An AI-powered banking fraud detection system designed to identify suspicious financial transactions using machine learning and provide a practical interface for reviewing fraud predictions.",
-
-            features: [
-
-                "Machine learning based fraud prediction",
-
-                "Transaction analysis and fraud scoring",
-
-                "Banking transaction data processing",
-
-                "Fraud case management",
-
-                "Database connectivity for storing records",
-
-                "Interactive application interface"
-
-            ],
-
-            technologies: [
-                "Python",
-                "Machine Learning",
-                "SQLite",
-                "Pandas",
-                "Scikit-learn"
-            ]
-
-        },
-
-
-        medigpt: {
-
-            number: "02 / PROJECT",
-
-            title: "MediGPT",
-
-            overview:
-                "A medicine information assistant developed to provide useful medicine-related information through an easy-to-use web interface.",
-
-            features: [
-
-                "Medicine information assistance",
-
-                "Interactive user interface",
-
-                "Python Flask backend",
-
-                "AI-based response functionality",
-
-                "Web-based application structure",
-
-                "Designed for simple and accessible interaction"
-
-            ],
-
-            technologies: [
-                "Python",
-                "Flask",
-                "AI",
-                "HTML",
-                "CSS",
-                "JavaScript"
-            ]
-
-        },
-
-
-        cricket: {
-
-            number: "03 / PROJECT",
-
-            title: "Cricket Analytics",
-
-            overview:
-                "A data analytics project focused on cleaning, exploring and understanding cricket performance data to discover useful patterns and insights.",
-
-            features: [
-
-                "Data cleaning and preprocessing",
-
-                "Exploratory data analysis",
-
-                "Cricket performance analysis",
-
-                "Statistical data exploration",
-
-                "Data visualization",
-
-                "Meaningful insights from sports data"
-
-            ],
-
-            technologies: [
-                "Python",
-                "Pandas",
-                "NumPy",
-                "Matplotlib",
-                "Data Analytics"
-            ]
-
-        },
-
-
-        student: {
-
-            number: "04 / PROJECT",
-
-            title: "Student Portal",
-
-            overview:
-                "A web-based student management portal designed to manage student information with authentication, records management and database connectivity.",
-
-            features: [
-
-                "Student login and authentication",
-
-                "Student record management",
-
-                "Add and view student information",
-
-                "Database connectivity",
-
-                "Structured web interface",
-
-                "MySQL database integration"
-
-            ],
-
-            technologies: [
-                "PHP",
-                "MySQL",
-                "HTML",
-                "CSS",
-                "XAMPP"
-            ]
-
-        }
-
-    };
-
-
-    const projectModal =
-        document.getElementById("projectModal");
-
-    const modalNumber =
-        document.getElementById("modalNumber");
-
-    const modalTitle =
-        document.getElementById("modalTitle");
-
-    const modalOverview =
-        document.getElementById("modalOverview");
-
-    const modalFeatures =
-        document.getElementById("modalFeatures");
-
-    const modalTech =
-        document.getElementById("modalTech");
-
-
-    function openProject(projectName) {
-
-        const project =
-            projectData[projectName];
-
-        if (!project) return;
-
-
-        modalNumber.textContent =
-            project.number;
-
-        modalTitle.textContent =
-            project.title;
-
-        modalOverview.textContent =
-            project.overview;
-
-
-        modalFeatures.innerHTML = "";
-
-        project.features.forEach(function (feature) {
-
-            const li =
-                document.createElement("li");
-
-            li.textContent =
-                feature;
-
-            modalFeatures.appendChild(li);
-
-        });
-
-
-        modalTech.innerHTML = "";
-
-        project.technologies.forEach(function (technology) {
-
-            const span =
-                document.createElement("span");
-
-            span.textContent =
-                technology;
-
-            modalTech.appendChild(span);
-
-        });
-
-
-        projectModal.classList.add("active");
-
-        document.body.classList.add("modal-open");
-
-    }
-
-
-    function closeProject() {
-
-        projectModal.classList.remove("active");
-
-        document.body.classList.remove("modal-open");
-
-    }
-
-
-    /* Close modal when clicking outside */
-
-    projectModal.addEventListener("click", function (event) {
-
-        if (event.target === projectModal) {
-
-            closeProject();
-
-        }
-
-    });
-
-
-    /* Close modal with Escape key */
-
-    document.addEventListener("keydown", function (event) {
-
-        if (event.key === "Escape") {
-
-            closeProject();
-
-        }
-
-    });
-
-
-    /* =========================
-       BACK TO TOP
-    ========================= */
-
-    const topBtn =
-        document.getElementById("topBtn");
-
-    window.addEventListener("scroll", function () {
-
-        if (window.scrollY > 500) {
-
-            topBtn.classList.add("show");
-
-        } else {
-
-            topBtn.classList.remove("show");
-
-        }
-
-    });
-
-
-    topBtn.addEventListener("click", function () {
-
-        window.scrollTo({
-
-            top: 0,
-
-            behavior: "smooth"
-
-        });
-
-    });
-
-
-    /* =========================
-       ACTIVE NAVIGATION
-    ========================= */
-
-    const sections =
-        document.querySelectorAll("section");
-
-    const navItems =
-        document.querySelectorAll(".nav-links a");
-
-    window.addEventListener("scroll", function () {
-
-        let current = "";
-
-        sections.forEach(function (section) {
-
-            const sectionTop =
-                section.offsetTop - 120;
-
-            if (window.scrollY >= sectionTop) {
-
-                current =
-                    section.getAttribute("id");
-
-            }
-
-        });
-
-
-        navItems.forEach(function (link) {
-
-            link.style.color = "";
-
-            if (
-                link.getAttribute("href") ===
-                "#" + current
-            ) {
-
-                link.style.color =
-                    "var(--primary)";
-
-            }
-
-        });
-
-    });
-
-</script>
-
-</body>
-
-</html>
-
-Close
